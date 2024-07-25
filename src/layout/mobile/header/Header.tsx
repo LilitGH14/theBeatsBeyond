@@ -23,7 +23,7 @@ const MobileHeader = ({ dict }: HeaderType) => {
   return (
     <>
       <header>
-        <div className="header__area_mobile">
+        <div className="bb-header__area_mobile">
           <Link href="/">
             <Image
               loader={imageLoader}
@@ -35,7 +35,7 @@ const MobileHeader = ({ dict }: HeaderType) => {
             />
           </Link>
           {!user && (
-            <div className="auth-btns">
+            <div className="bb-header__auth-btns">
               <Link href="/login" className="signin">
                 {dict?.Header?.Sign_in}
               </Link>
@@ -45,8 +45,8 @@ const MobileHeader = ({ dict }: HeaderType) => {
             </div>
           )}
           {user && (
-            <div className="header__action-inner d-flex align-items-center">
-              <div className="user__acount d-none d-sm-inline-flex">
+            <div className="bb-header__action-inner">
+              <div className="bb-header__user-acount">
                 <span role="button" onClick={() => setIsOpen(true)}>
                   <i className="flaticon-user"></i>
                 </span>

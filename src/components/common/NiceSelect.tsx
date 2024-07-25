@@ -1,4 +1,3 @@
-import useGlobalContext from "@/hooks/use-context";
 import { OptionType } from "@/types/types";
 import React, {
   useState,
@@ -29,8 +28,6 @@ const NiceSelect: React.FC<NiceSelectProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const { setNiceSelectData } = useGlobalContext();
-
   const [open, setOpen] = useState<boolean>(false);
   const [current, setCurrent] = useState<OptionType>();
 
@@ -41,7 +38,6 @@ const NiceSelect: React.FC<NiceSelectProps> = ({
   const currentHandler = (item: OptionType) => {
     setCurrent(item);
     onChange(item, name);
-    setNiceSelectData(item?.optionName);
     onClose();
   };
 

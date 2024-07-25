@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../common/Modal";
-import song_playlist from "@/data/song-playlist-data";
 import AudioPlayer from "react-h5-audio-player";
 import { generateNewSong } from "@/services/songs";
 import NewSongForm from "./NewSongForm";
 import { useFormik } from "formik";
+import song_playlist from "../../../public/assets/mock/song-playlist-data";
 
 type SongLyricsType = {
   dict: { [key: string]: string };

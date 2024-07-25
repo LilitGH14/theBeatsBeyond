@@ -1,4 +1,4 @@
-import menu_data from "../../data/menu-data";
+import menu_data from "../../constants/menu-data";
 import Link from "next/link";
 import React, { useState } from "react";
 

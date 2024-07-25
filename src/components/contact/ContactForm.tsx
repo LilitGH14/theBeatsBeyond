@@ -3,7 +3,7 @@ import { contact_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import React from "react";
 import { toast } from "react-toastify";
-import ErrorMsg from "../../form/error-msg";
+import ErrorMsg from "../common/ErrorMsg";
 import { sendMessageFromContact } from "@/services/contact";
 
 type ContactFormProps = {

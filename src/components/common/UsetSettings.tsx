@@ -5,7 +5,7 @@ import Payments from "./Payments";
 type UserSettingsProps = {
   termsActive?: string;
   policyActive?: string;
-  dict: { [key: string]: string };
+  dict: { [key: string]: string }|null;
 };
 const UserSettings = ({
   termsActive,

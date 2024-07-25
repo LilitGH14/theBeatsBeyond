@@ -35,12 +35,12 @@ const menu_data: TMenuItem[] = [
     link: "/stories",
     hasDropdown: false,
   },
-  // {
-  //   id: 3,
-  //   title: "Songs",
-  //   link: "/songs",
-  //   hasDropdown: false,
-  // },
+  {
+    id: 3,
+    title: "Songs",
+    link: "/songs",
+    hasDropdown: false,
+  },
   {
     id: 5,
     hasDropdown: false,

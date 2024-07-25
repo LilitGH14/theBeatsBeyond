@@ -3,7 +3,7 @@ import { register_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import React from "react";
 import { toast } from "react-toastify";
-import ErrorMsg from "../../form/error-msg";
+import ErrorMsg from "../common/ErrorMsg";
 import Link from "next/link";
 import { registerUser } from "@/services/auth";
 

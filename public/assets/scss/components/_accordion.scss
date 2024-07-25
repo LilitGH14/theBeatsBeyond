@@ -89,16 +89,12 @@
     @media #{$sm} {
       padding: 0 20px 22px 20px;
     }
-
-    @include rtl {
-      padding: 0 30px 22px 70px;
-    }
   }
 
   & > div {
     width: calc((100% - 24px) / 2);
 
-    @media #{$md, $sm, $sm} {
+    @media #{$md, $sm} {
       width: calc((100% - 0px) / 1);
     }
   }

@@ -1,5 +1,4 @@
 "use client";
-import ErrorMsg from "@/form/error-msg";
 import { useFormik } from "formik";
 import React from "react";
 import Image from "next/image";
@@ -8,9 +7,10 @@ import master from "../../../public/assets/img/payments/master.jpg";
 import visa from "../../../public/assets/img/payments/visa.jpg";
 import paypal from "../../../public/assets/img/payments/paypal.jpg";
 import { savePayment } from "@/services/payment";
+import ErrorMsg from "./ErrorMsg";
 
 type PaymentsProps = {
-  dict: { [key: string]: string };
+  dict: { [key: string]: string } | null;
 };
 const Payments = ({ dict }: PaymentsProps) => {
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =

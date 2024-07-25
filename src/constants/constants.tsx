@@ -109,3 +109,31 @@ export const TAG_OPTIONS = [
   { id: 12, optionName: "upset" },
   { id: 13, optionName: "worried" },
 ];
+
+type TNiceSelectData = {
+  id: number;
+  optionName: string;
+};
+export const bannerFormSelect: TNiceSelectData[] = [
+  {
+    id: 1,
+    optionName: "Band/Group",
+  },
+  {
+    id: 2,
+    optionName: "Duet",
+  },
+  {
+    id: 3,
+    optionName: "Solo",
+  },
+  {
+    id: 4,
+    optionName: "New",
+  },
+  {
+    id: 5,
+    optionName: "Popular",
+  },
+];
+

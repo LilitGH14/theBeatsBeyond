@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
-import song_playlist from "../../data/song-playlist-data";
+import song_playlist from "../../../public/assets/mock/song-playlist-data";
 import "react-h5-audio-player/lib/styles.css";
 
 const NavProfileTab = () => {

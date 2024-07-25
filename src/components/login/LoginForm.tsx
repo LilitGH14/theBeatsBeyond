@@ -3,7 +3,7 @@ import { login_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
-import ErrorMsg from "../../form/error-msg";
+import ErrorMsg from "../common/ErrorMsg";
 import { toast } from "react-toastify";
 import { loginUser } from "@/services/auth";
 

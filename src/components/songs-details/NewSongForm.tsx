@@ -2,7 +2,7 @@
 import { login_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import React from "react";
-import ErrorMsg from "../../form/error-msg";
+import ErrorMsg from "../common/ErrorMsg";
 import { saveNewSong } from "@/services/songs";
 
 type NewStoryFormType = {
