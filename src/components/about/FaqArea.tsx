@@ -22,19 +22,13 @@ const FaqArea = ({ dict }: { dict: any }) => {
             <h2 className="section__title mb-40 bd-title-anim">
               {dict?.Faq_area_title}
             </h2>
-            <p>{dict?.Faq_area_text}</p>
+            <p className="section__description">{dict?.Faq_area_text}</p>
           </div>
         </div>
         <div className="row bdFadeUp">
           <div className="col-12">
             <div className="tab-content" id="nav-tabContent">
-              <div
-                className="tab-pane fade show active"
-                id="nav-faq-1"
-                role="tabpanel"
-                aria-labelledby="nav-faq-1-tab"
-                tabIndex={0}
-              >
+              <div className="tab-pane fade">
                 <div className="accordion p-relative" id="accordionExample">
                   <div>
                     {faqData

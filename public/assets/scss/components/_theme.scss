@@ -329,16 +329,9 @@ a {
 -----------------------------------------*/
 
 .progress-wrap {
-  @include rtl {
-    right: auto;
-    inset-inline-start: 50px;
-
-    @media #{$sm} {
-      inset-inline-start: 15px;
-      right: auto;
-    }
+  &::after {
+    color: $textColorPrimary;
   }
-
   @media #{$sm} {
     right: 15px;
     bottom: 15px;

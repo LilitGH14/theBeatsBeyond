@@ -16,23 +16,28 @@ const PageHeader = ({
   button,
 }: PageHeaderProps) => {
   return (
-    <section className="bt-page-header-container fix">
+    <section className="bb-page-header__area fix">
       <div
-        className="include__bg p-relative zindex-1 pt-70 pb-70"
+        className="bb-page-header__inner include__bg"
         style={{ backgroundImage: `url(${imageSrc})` }}
       >
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-10 col-lg-10">
-              <div className="bt-content text-center">
-                <h2 className="bt-title mb-30">{dict?.[title] ?? title}</h2>
+              <div className="bb-page-header__content text-center">
+                <h2 className="bb-page-header__content-title">
+                  {dict?.[title] ?? title}
+                </h2>
                 {description && (
-                  <p className="bt-description capitalize mb-65">
+                  <p className="bb-page-header__content-description">
                     {dict?.[description] ?? description}
                   </p>
                 )}
                 {button && (
-                  <Link href={button.link} className="add-story-btn">
+                  <Link
+                    href={button.link}
+                    className="bb-page-header__content-btn"
+                  >
                     {button.title}
                   </Link>
                 )}

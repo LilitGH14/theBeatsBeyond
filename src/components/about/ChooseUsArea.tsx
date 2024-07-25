@@ -16,14 +16,6 @@ const ChooseUsArea = ({ dict }: { dict: any }) => {
   return (
     <div className="bb-choose__area">
       <div className="container">
-        <div className="row align-items-end bdFadeUp">
-          <div className="col-12">
-            <h2 className="section__title bd-title-anim">
-              {dict?.Why_choose_us_title}
-            </h2>
-            <p className="section__text">{dict?.Why_choose_us_text}</p>
-          </div>
-        </div>
         <div className="row bdFadeUp">
           {chooseData.map((item: ChooseUsDataType) => (
             <div className="col-lg-4 col-md-6" key={item.id}>

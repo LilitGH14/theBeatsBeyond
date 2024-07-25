@@ -18,7 +18,7 @@ const WorkArea = ({ dict }: WorkAreaProps) => {
           <div className="col-xl-12">
             <div className="bb-work__content-space">
               <div className="section__title-wrapper bd-title-anim">
-                <span className="section__subtitle">
+                <span className="subtitle">
                   {dict?.How_it_works_section_title}
                 </span>
                 <h2 className="section__title two">

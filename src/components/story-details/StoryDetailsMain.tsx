@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { StoryDetailsType } from "@/types/types";
 import PageHeader from "../common/PageHeader";
-import EventBg from "../../../public/assets/img/event/event-bg-4.jpg";
+import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
 import StoryDetailsSidebar from "./StoryDetailsSidebar";
 import { useSelector } from "react-redux";
 import { fetchStoryById } from "@/services/stories";
@@ -43,7 +43,7 @@ const StoryDetailsMain = () => {
 
   return (
     <main>
-      <PageHeader imageSrc={EventBg.src} title={story?.title} dict={dict} />
+      <PageHeader imageSrc={Bg.src} title={story?.title} dict={dict} />
       <section className="bb-story__details">
         <div className="container">
           <div className="row">

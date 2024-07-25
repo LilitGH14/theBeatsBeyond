@@ -11,8 +11,10 @@
   &-item {
     border: 0;
     margin: 20px 0;
-    background: var(--clr-bg-2);
-    border-radius: 8px;
+    background: $bgChooseCard;
+    border: 1px solid $borderFeatureColor;
+    border-radius: 15px;
+    color: $textColorPrimary;
 
     @media #{$sm} {
       margin: 0 0 20px;
@@ -47,7 +49,7 @@
   .accordion-button {
     font-weight: 500;
     font-size: 20px;
-    color: var(--clr-common-white);
+    color: $textColorPrimary;
     padding: 20px 30px;
     padding-inline-end: 70px;
     line-height: 1.6;
@@ -59,11 +61,6 @@
       line-height: 1.5;
     }
 
-    &.collapsed {
-      background: var(--clr-bg-2);
-      color: var(--clr-common-white);
-    }
-
     &:not(.collapsed) {
       box-shadow: none;
       background-color: transparent;
@@ -71,7 +68,6 @@
 
     &:focus {
       z-index: 3;
-      border-color: #a76cd1;
       outline: 0;
       box-shadow: none;
     }
@@ -79,12 +75,7 @@
 
   &-body {
     padding: 0 70px 22px 30px;
-    color: var(--clr-text-5);
     text-transform: capitalize;
-
-    @media #{$sm,$sm} {
-      padding: 0 30px 22px 30px;
-    }
 
     @media #{$sm} {
       padding: 0 20px 22px 20px;

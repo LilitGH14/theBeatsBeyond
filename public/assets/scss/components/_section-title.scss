@@ -69,6 +69,18 @@
       font-size: 14px;
     }
   }
+
+  &__description {
+    font-size: 16px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    display: inline-block;
+    color: $secondaryTitleColor;
+
+    @media #{$sm} {
+      font-size: 14px;
+    }
+  }
 }
 
 .comment-modal-content {

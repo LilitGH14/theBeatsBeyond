@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ChooseUsArea from "./ChooseUsArea";
 import FaqArea from "./FaqArea";
 import PageHeader from "../common/PageHeader";
-import aboutBgImg from "../../../public/assets/img/about/about.jpg";
+import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
 import { useSelector } from "react-redux";
 
 const AboutMainArea = () => {
@@ -21,9 +21,9 @@ const AboutMainArea = () => {
     <>
       <PageHeader
         dict={dict}
-        imageSrc={aboutBgImg.src}
-        title="About_title"
-        description="About_text"
+        imageSrc={Bg.src}
+        title="Why_choose_us_title"
+        description="Why_choose_us_text"
       />
       <ChooseUsArea dict={dict} />
       <FaqArea dict={dict} />

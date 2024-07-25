@@ -17,8 +17,9 @@
 
   &__item {
     padding: 20px;
-    border: 1px solid var(--clr-border-1);
+    border: 1px solid $borderFeatureColor;
     border-radius: 15px;
+    background-color: $bgChooseCard;
     @include transition(0.3s);
 
     @media #{$sm} {
@@ -30,11 +31,11 @@
     }
 
     &:hover {
-      border-color: var(--clr-common-white);
+      border-color: $borderFeatureColor;
     }
 
     &-icon {
-      background: var(--clr-border-1);
+      background:$bgChooseCardIcon;
       width: 70px;
       height: 70px;
       line-height: 70px;
@@ -51,7 +52,7 @@
       }
 
       i {
-        color: var(--clr-common-white);
+        color: $textColorPrimary;
         font-size: 25px;
         top: 7px;
       }
@@ -62,19 +63,18 @@
         inset-inline-end: -8px;
         font-weight: 600;
         font-size: 12px;
-        background: var(--clr-bg-1);
+        background: $secondary1TextColor;
         width: 22px;
         height: 22px;
         line-height: 22px;
         border-radius: 50%;
-        color: var(--clr-common-black);
       }
     }
 
     &-title {
       font-weight: 500;
       font-size: 18px;
-      color: var(--clr-text-3);
+      color: $textColorPrimary;
       line-height: 1.5;
 
       @media #{$sm} {
@@ -85,7 +85,7 @@
     &-text {
       font-weight: 400;
       font-size: 16px;
-      color: var(--clr-text-3);
+      color: $bgChooseDescription;
       line-height: 1.7;
       margin-top: 20px;
     }

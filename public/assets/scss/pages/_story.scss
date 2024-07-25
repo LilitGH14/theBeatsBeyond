@@ -31,10 +31,11 @@
     }
 
     img {
+      @include transition(0.3s);
+
       transform: scale(1.03);
       height: auto;
       width: 100%;
-      @include transition(0.3s);
       object-fit: cover;
     }
   }
@@ -43,7 +44,7 @@
     position: absolute;
     font-weight: 600;
     font-size: 20px;
-    color: var(--clr-common-white);
+    color: $textColorPrimary;
     top: 35px;
     inset-inline-start: 30px;
     font-family: var(--bd-ff-heading);
@@ -79,6 +80,7 @@
     &-content {
       padding: 30px;
       z-index: 3;
+      color: $descriptionColorSecondary;
 
       @media #{$sm} {
         padding: 0 0 20px;
@@ -86,7 +88,7 @@
     }
 
     &-sidebar {
-      border: 1px solid var(--clr-border-1);
+      border: 1px solid $borderFeatureColor;
       border-radius: 15px;
       padding: 30px 25px;
 
@@ -101,7 +103,7 @@
       }
 
       &-item {
-        border-bottom: 1px solid var(--clr-border-1);
+        border-bottom: 1px solid $borderFeatureColor;
         margin-bottom: 35px;
 
         &:last-child {
@@ -116,9 +118,16 @@
       flex-direction: column;
     }
 
+    &-title {
+      color: $textColorPrimary;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
     &-stext {
       display: block;
       margin-bottom: 20px;
+      color: $descriptionColorSecondary;
 
       a {
         @include transition(0.3s);
@@ -140,20 +149,25 @@
     }
 
     .bb-input-box {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       position: relative;
       display: flex;
       flex-direction: column;
+
+      label{
+        color: $textColorPrimary;
+        margin-bottom: 10px;
+      }
 
       input,
       select,
       textarea {
         width: 100%;
         background: #1b1b1b;
-        border: 1px solid var(--clr-border-3);
+        border: 1px solid $borderInput;
         border-radius: 16px;
         height: 65px;
-        color: var(--clr-text-8);
+        color: $textColorPrimary;
         padding: 0 12px;
         @include transition(0.3s);
         resize: none;
@@ -163,7 +177,7 @@
         }
 
         &:focus {
-          border: 1px solid var(--clr-border-2);
+          border: 1px solid $borderFocused;
         }
       }
 
@@ -179,7 +193,7 @@
         }
 
         &:focus {
-          border: 1px solid var(--clr-border-2);
+          border: 1px solid $borderFocused;
         }
       }
     }

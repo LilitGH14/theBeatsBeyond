@@ -32,12 +32,12 @@ const HomePageBanner = ({ dict }: HomePageBannerProps) => {
                       >
                         {dict?.Leave_story_btn}
                       </Link>
-                      <Link
+                      {/* <Link
                         className="unfill__btn feature-unfill_btn"
                         href="/songs"
                       >
                         {dict?.Remix_song_btn}
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>

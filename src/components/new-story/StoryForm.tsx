@@ -10,7 +10,7 @@ import MultiSelect from "../common/MultiSelect";
 import { WithContext as ReactTags, SEPARATORS } from "react-tag-input";
 import { Tag } from "react-tag-input/types/components/SingleTag";
 
-type StoryFormProps={
+type StoryFormProps = {
   dict: { [key: string]: string } | null;
 };
 const StoryForm = ({ dict }: StoryFormProps) => {
@@ -66,7 +66,43 @@ const StoryForm = ({ dict }: StoryFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="row">
-      <div className="col-12">
+      <div className="col-lg-4">
+        <div className="bb-input-box">
+          <label>{dict?.Writers_placeholder}</label>
+          <ReactTags
+            tags={values.writers}
+            name="writers"
+            separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
+            handleDelete={removeWriter}
+            handleAddition={addWriters}
+            inputFieldPosition="bottom"
+            editable
+          />
+        </div>
+        <div className="bb-input-box">
+          <label>{dict?.Singers_placeholder}</label>
+          <ReactTags
+            tags={values.singers}
+            name="singers"
+            separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
+            handleDelete={removeSinger}
+            handleAddition={addSingers}
+            inputFieldPosition="bottom"
+            editable
+          />
+        </div>
+        <div className="bb-input-box">
+          <label>{dict?.Story_tags_label}</label>
+          <MultiSelect
+            values={values.tags}
+            options={TAG_OPTIONS}
+            onChange={handleChange}
+            name="tags"
+            dict={dict ?? {}}
+          />
+        </div>
+      </div>
+      <div className="col-lg-8">
         <div className="bb-input-box">
           <label>{dict?.Story_title_label}</label>
           <input
@@ -81,8 +117,6 @@ const StoryForm = ({ dict }: StoryFormProps) => {
           />
           {touched.title && <ErrorMsg error={errors.title} />}
         </div>
-      </div>
-      <div className="col-12">
         <div className="bb-input-box">
           <label>{dict?.Story_description_label}</label>
           <textarea
@@ -96,51 +130,11 @@ const StoryForm = ({ dict }: StoryFormProps) => {
           />
           {touched.description && <ErrorMsg error={errors.description} />}
         </div>
-      </div>
-      <div className="col-6">
         <div className="bb-input-box">
-          <label>{dict?.Writers_placeholder}</label>
-          <ReactTags
-            tags={values.writers}
-            name="writers"
-            separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
-            handleDelete={removeWriter}
-            handleAddition={addWriters}
-            inputFieldPosition="bottom"
-            editable
-          />
+          <button className="unfill__btn d-block" type="submit">
+            {dict?.Add_new_story}
+          </button>
         </div>
-      </div>
-      <div className="col-6">
-        <div className="bb-input-box">
-          <label>{dict?.Singers_placeholder}</label>
-          <ReactTags
-            tags={values.singers}
-            name="singers"
-            separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
-            handleDelete={removeSinger}
-            handleAddition={addSingers}
-            inputFieldPosition="bottom"
-            editable
-          />
-        </div>
-      </div>
-      <div className="col-12">
-        <div className="bb-input-box">
-          <label>{dict?.Story_tags_label}</label>
-          <MultiSelect
-            values={values.tags}
-            options={TAG_OPTIONS}
-            onChange={handleChange}
-            name="tags"
-            dict={dict ?? {}}
-          />
-        </div>
-      </div>
-      <div className="bb-submit-btn">
-        <button className="unfill__btn d-block w-100" type="submit">
-          {dict?.Add_new_story}
-        </button>
       </div>
     </form>
   );
