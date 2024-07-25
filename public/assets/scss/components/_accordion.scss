@@ -1,0 +1,105 @@
+@use "../utils" as *;
+
+.accordion {
+  display: flex;
+  column-gap: 24px;
+
+  @media #{$sm} {
+    flex-direction: column;
+  }
+
+  &-item {
+    border: 0;
+    margin: 20px 0;
+    background: var(--clr-bg-2);
+    border-radius: 8px;
+
+    @media #{$sm} {
+      margin: 0 0 20px;
+    }
+  }
+
+  &-button {
+    @include border-radius(10px);
+
+    &::after {
+      content: "\f067";
+      background-image: none;
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 500;
+      inset-inline-end: 30px;
+      position: absolute;
+      top: 22px;
+
+      @media #{$sm} {
+        inset-inline-end: 20px;
+      }
+    }
+
+    &:not(.collapsed)::after {
+      background-image: none;
+      @include transform(rotate(0));
+      content: "\f068";
+      font-family: "Font Awesome 6 Pro";
+    }
+  }
+
+  .accordion-button {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--clr-common-white);
+    padding: 20px 30px;
+    padding-inline-end: 70px;
+    line-height: 1.6;
+
+    @media #{$sm} {
+      padding: 20px 20px;
+      padding-inline-end: 60px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    &.collapsed {
+      background: var(--clr-bg-2);
+      color: var(--clr-common-white);
+    }
+
+    &:not(.collapsed) {
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    &:focus {
+      z-index: 3;
+      border-color: #a76cd1;
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  &-body {
+    padding: 0 70px 22px 30px;
+    color: var(--clr-text-5);
+    text-transform: capitalize;
+
+    @media #{$sm,$sm} {
+      padding: 0 30px 22px 30px;
+    }
+
+    @media #{$sm} {
+      padding: 0 20px 22px 20px;
+    }
+
+    @include rtl {
+      padding: 0 30px 22px 70px;
+    }
+  }
+
+  & > div {
+    width: calc((100% - 24px) / 2);
+
+    @media #{$md, $sm, $sm} {
+      width: calc((100% - 0px) / 1);
+    }
+  }
+}

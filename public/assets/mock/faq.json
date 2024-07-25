@@ -1,0 +1,41 @@
+{
+  "ResponseCode": 200,
+  "ResponseData": [
+    {
+      "collapse_id": "collapseOne",
+      "id": "headingOne",
+      "question": "Faq_question_1",
+      "answer": "Faq_answer_1"
+    },
+    {
+      "collapse_id": "collapseTwo",
+      "id": "headingTwo",
+      "question": "Faq_question_2",
+      "answer": "Faq_answer_2"
+    },
+    {
+      "collapse_id": "collapseThree",
+      "id": "headingThree",
+      "question": "Faq_question_3",
+      "answer": "Faq_answer_3"
+    },
+    {
+      "collapse_id": "collapseFour",
+      "id": "headingFour",
+      "question": "Faq_question_4",
+      "answer": "Faq_answer_4"
+    },
+    {
+      "collapse_id": "collapseFive",
+      "id": "headingFive",
+      "question": "Faq_question_5",
+      "answer": "Faq_answer_5"
+    },
+    {
+      "collapse_id": "collapseSix",
+      "id": "headingSix",
+      "question": "Faq_question_6",
+      "answer": "Faq_answer_6"
+    }
+  ]
+}

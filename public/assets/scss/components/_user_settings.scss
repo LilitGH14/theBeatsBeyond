@@ -1,0 +1,17 @@
+.payment-form-wrapper {
+  width: 450px;
+
+  .payment_methods-wrapper {
+    img {
+      border-radius: 8px;
+    }
+  }
+
+  .date {
+    justify-content: space-between;
+
+    input {
+      width: 130px;
+    }
+  }
+}
