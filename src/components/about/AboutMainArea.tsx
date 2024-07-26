@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ChooseUsArea from "./ChooseUsArea";
 import FaqArea from "./FaqArea";
 import PageHeader from "../common/PageHeader";
 import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
@@ -18,16 +17,15 @@ const AboutMainArea = () => {
   }, [dictSelector]);
 
   return (
-    <>
+    <main>
       <PageHeader
         dict={dict}
         imageSrc={Bg.src}
         title="Why_choose_us_title"
         description="Why_choose_us_text"
       />
-      <ChooseUsArea dict={dict} />
       <FaqArea dict={dict} />
-    </>
+    </main>
   );
 };
 export default AboutMainArea;

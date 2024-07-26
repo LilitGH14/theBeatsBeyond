@@ -243,14 +243,14 @@
     }
   },
   "HowItWorksPage": {
-    "How_it_works_feature1_title": "Choose a Song",
-    "How_it_works_feature1_description": "Start by selecting your favorite track from our extensive library.",
-    "How_it_works_feature2_title": "Rewrite the Lyrics",
-    "How_it_works_feature2_description": "Use our intuitive editor to tweak the lyrics. Change the lyrics to express your emotions!",
-    "How_it_works_feature3_title": "Share Your Story",
-    "How_it_works_feature3_description": "Tell us what inspired your version of the song. Your story can be as brief or as detailed as you like.",
-    "How_it_works_feature4_title": "Publish and Inspire",
-    "How_it_works_feature4_description": "Once you're happy with your lyrics and story, share your work with friends."
+    "How_it_works": "How it works",
+    "How_it_works_description": "Welcome to The Beats Beyond, Inspire Your Favorite Artist with a Unique Touch. Unleash Your Creativity, Inspire the World.",
+    "How_it_works_feature_1_title": "Tell your stories for Inspiring artists",
+    "How_it_works_feature_1_description": "Leave your own stories to inspire artists to create something incrediable. Let them feel the happiest, saddest, funniest moments of your life",
+    "How_it_works_feature_2_title": "Vote for the stories you are affected more",
+    "How_it_works_feature_2_description": "Vote for a story you are affected by, and watch a new masterpiece come to life. The stories with the highest vote count will go to the top, being much more noticeable.",
+    "How_it_works_feature_3_title": "Watch a new masterpiece come to life",
+    "How_it_works_feature_3_description": "Watch how your stories become a new masterpiece shared all over th e world. Your story can be found attractive to be the next selected source of inspiration. "
   },
   "UserSettings": {
     "Title": "User Settings",
@@ -264,18 +264,5 @@
     "Save": "Save",
     "Payment_default_alt": "Payment default logo",
     "Cards": "Cards accepted"
-  },
-  "Leave_story_btn": "Leave story",
-  "Generate_song_btn": "Generate song",
-  "Lyrics": "Lyrics",
-  "Listen": "Listen",
-  "See_translations": "See translations",
-  "Generate_song": "Generate song",
-  "Running_line_one": "Share your story with us",
-  "Running_line_two": "Let your favorite band make a song for you using AI",
-  "Categories": "Categories",
-  "New": "New",
-  "BTS": "BTS",
-  "Duets": "Duets",
-  "Solo": "Solo"
+  }
 }

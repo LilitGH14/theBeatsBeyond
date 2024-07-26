@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../common/Pagination";
 import { StoryType } from "@/types/types";
 import PageHeader from "../common/PageHeader";
-import EventBg from "../../../public/assets/img/event/event-bg-4.jpg";
+import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
 import StoryItem from "./StoryItem";
 import { useSelector } from "react-redux";
 import { fetchStoriesData } from "@/services/stories";
@@ -38,7 +38,7 @@ const StoriesMainArea = () => {
     <main>
       <PageHeader
         dict={dict}
-        imageSrc={EventBg.src}
+        imageSrc={Bg.src}
         title="Stories_title"
         button={{ link: "/new-story", title: dict["Stories_btn"] }}
       />
