@@ -57,7 +57,7 @@ const NiceSelect: React.FC<NiceSelectProps> = ({
 
   return (
     <div
-      className={`nice-select ${className || ""} ${open ? "open" : ""}`}
+      className={`nice-select ${className} ${open ? "open" : ""}`}
       role="button"
       tabIndex={0}
       onClick={handleClick}

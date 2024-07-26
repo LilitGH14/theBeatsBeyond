@@ -18,7 +18,7 @@ const Footer = ({ dict }: FooterType) => {
         <div className="container">
           <div className="bb-footer-inner ms-br-100 ms-bg-4">
             <div className="row align-items-center">
-              <div className="col-xl-2 col-lg-3 col-md-4">
+              <div className="col-12 d-flex justify-content-center">
                 <div className="bb-footer-logo m-img">
                   <Link href="/home-2">
                     <Image
@@ -32,33 +32,6 @@ const Footer = ({ dict }: FooterType) => {
                   </Link>
                 </div>
               </div>
-              <div className="col-xl-10 col-lg-9 col-md-8">
-                <div className="bb-footer-social-border p-relative">
-                  <div className="bb-footer-social-inner">
-                    <Link
-                      href="https://www.linkedin.com/"
-                      title="Instagram"
-                      target="_blank"
-                    >
-                      {dict?.IN}
-                    </Link>
-                    <Link
-                      href="https://twitter.com/"
-                      title="Twitter"
-                      target="_blank"
-                    >
-                      {dict?.TW}
-                    </Link>
-                    <Link
-                      href="https://www.facebook.com/"
-                      title="Facebook"
-                      target="_blank"
-                    >
-                      {dict?.FB}
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div className="row">
@@ -68,8 +41,29 @@ const Footer = ({ dict }: FooterType) => {
                 <div className="bb-footer-contact">
                   <ul>
                     <li>
-                      <i className="flaticon-pin"></i>
-                      {dict?.Address}
+                      <div className="bb-footer-social-inner">
+                        <Link
+                          href="https://www.linkedin.com/"
+                          title="Instagram"
+                          target="_blank"
+                        >
+                          {dict?.IN}
+                        </Link>
+                        <Link
+                          href="https://twitter.com/"
+                          title="Twitter"
+                          target="_blank"
+                        >
+                          {dict?.TW}
+                        </Link>
+                        <Link
+                          href="https://www.facebook.com/"
+                          title="Facebook"
+                          target="_blank"
+                        >
+                          {dict?.FB}
+                        </Link>
+                      </div>
                     </li>
                     <li>
                       <i className="flaticon-mail"></i>

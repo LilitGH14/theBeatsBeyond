@@ -79,15 +79,14 @@ const SongLyrics = ({ dict, content }: SongLyricsType) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="bb-songs__item-lyrics">
+        <div className="bb-songs__item-lyrics-content">
           {Object.keys(lyrics).map((m: string, i: number) => {
             return (
               <div key={i}>
                 <span className="bb-singer-couplet">
                   {m.replace("/editable/", "")}
                 </span>
-
                 {lyrics[m].map((row, j) => (
                   <React.Fragment key={j}>
                     {lyricsIsChanged ? (

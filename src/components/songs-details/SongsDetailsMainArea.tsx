@@ -33,60 +33,13 @@ const SongsDetailsMainArea = () => {
   }, [dictSelector]);
 
   return (
-    <section className="bb-song__details">
+    <section className="bb-songs__item-details">
       <div className="container">
+      <h3 className="bb-songs__item-details-title">Details</h3>
         <div className="row">
-          <div className="col-sm-8 col-xl-7">
-            <div
-              className="nav nav-tabs ms-tab-button border-0 ms-border2-btn ms-tab-prevent"
-              id="nav-tab"
-              role="tablist"
-            >
-              <button
-                className="nav-link prevent active"
-                id="nav-home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-home"
-                type="button"
-                role="tab"
-                aria-controls="nav-home"
-                aria-selected="true"
-              >
-                {dict.Lyrics}
-              </button>
-              <button
-                className="nav-link prevent"
-                id="nav-profile-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-profile"
-                type="button"
-                role="tab"
-                aria-controls="nav-profile"
-                aria-selected="false"
-              >
-                {dict.Listen}
-              </button>
-            </div>
-            <div className="tab-content" id="nav-tabContent2">
-              <div
-                className="tab-pane fade show active"
-                id="nav-home"
-                role="tabpanel"
-                aria-labelledby="nav-home-tab"
-                tabIndex={0}
-              >
-                <SongLyrics dict={dict} content={song?.lyrics} />
-              </div>
-              <div
-                className="tab-pane fade"
-                id="nav-profile"
-                role="tabpanel"
-                aria-labelledby="nav-profile-tab"
-                tabIndex={0}
-              >
-                <NavProfileTab />
-              </div>
-            </div>
+          <div className="col-lg-8">
+            <NavProfileTab />
+            <SongLyrics dict={dict} content={song?.lyrics} />
           </div>
           <Sidebar dict={dict} song={song as SongType} />
         </div>

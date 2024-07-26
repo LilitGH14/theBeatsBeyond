@@ -584,8 +584,10 @@ a:visited.ui-button,
 }
 
 .nice-select {
-  padding-inline-start: 5px;
-  padding-inline-end: 24px;
+  color: $textColorPrimary;
+  border: 1px solid $borderInput;
+  background: $bgFilter;
+  padding: 10px 15px;
 
   .current {
     text-transform: capitalize;
@@ -676,7 +678,6 @@ a:visited.ui-button,
     position: static;
   }
 }
-
 
 @media #{$sm} {
   .container,
