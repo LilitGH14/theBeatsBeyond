@@ -54,7 +54,7 @@ const SongsListingArea = ({
                         loader={imageLoader}
                         placeholder="blur"
                         loading="lazy"
-                        style={{ width: "auto", height: "155px" }}
+                        style={{ width: "auto" }}
                         alt="genres img"
                       />
                     </div>

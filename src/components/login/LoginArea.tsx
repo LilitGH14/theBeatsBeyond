@@ -15,17 +15,11 @@ const LoginArea = () => {
   }, [dictSelector]);
 
   return (
-    <main className="pt-90">
-      <section className="bb-login-area pb-30 pt-30">
-        <div className="container">
-          <div className="bb-maxw-510 mx-auto">
-            <div className="bb-login-wrap  ms-login-space ms-bg-2">
-              <h3 className="bb-title4 mb-50 text-center">
-                {dict?.Login_description}
-              </h3>
-              <LoginForm dict={dict} />
-            </div>
-          </div>
+    <main>
+      <section className="bb-auth__area">
+        <div className="bb-auth__inner">
+          <h3 className="bb-auth__title">{dict?.Login_description}</h3>
+          <LoginForm dict={dict} />
         </div>
       </section>
     </main>

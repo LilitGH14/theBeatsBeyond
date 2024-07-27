@@ -5,7 +5,7 @@ import Payments from "./Payments";
 type UserSettingsProps = {
   termsActive?: string;
   policyActive?: string;
-  dict: { [key: string]: string }|null;
+  dict: { [key: string]: string } | null;
 };
 const UserSettings = ({
   termsActive,
@@ -13,16 +13,16 @@ const UserSettings = ({
   dict,
 }: UserSettingsProps) => {
   return (
-    <section className="terms_conditions_section section_space_lg pt-20 pb-20">
+    <section className="terms_conditions_section">
       <div className="row">
         <div className="col-xl-2 col-lg-4">
           <ul
-            className="nav tabs_nav_boxed unordered_list_block mb-60"
+            className="nav tabs_nav_boxed unordered_list_block"
             role="tablist"
           >
             <li role="presentation">
               <button
-                className={policyActive ? policyActive : ""}
+                className={policyActive ?? ""}
                 data-bs-toggle="tab"
                 data-bs-target="#tab_privacy_policy"
                 type="button"
@@ -35,7 +35,7 @@ const UserSettings = ({
             </li>
             <li role="presentation">
               <button
-                className={termsActive ? termsActive : ""}
+                className={termsActive ?? ""}
                 data-bs-toggle="tab"
                 data-bs-target="#tab_terms_conditions"
                 type="button"
@@ -49,18 +49,16 @@ const UserSettings = ({
           </ul>
         </div>
         <div className="col-xl-10 col-lg-8">
-          <div className="tab-content mb-60">
+          <div className="tab-content">
             <div
-              className={`tab-pane fade show ${
-                policyActive ? policyActive : ""
-              }`}
+              className={`tab-pane fade show ${policyActive ?? ""}`}
               id="tab_privacy_policy"
               role="tabpanel"
             >
               Personal info
             </div>
             <div
-              className={`tab-pane fade show ${termsActive ? termsActive : ""}`}
+              className={`tab-pane fade show ${termsActive ?? ""}`}
               id="tab_terms_conditions"
               role="tabpanel"
             >

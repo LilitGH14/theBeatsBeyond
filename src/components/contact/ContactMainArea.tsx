@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Breadcrumb from "../common/Breadcrumb";
 import { useSelector } from "react-redux";
 import ContactForm from "./ContactForm";
+import PageHeader from "../common/PageHeader";
+import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
 
 const ContactMainArea = () => {
   const dictSelector = useSelector(
@@ -16,20 +17,12 @@ const ContactMainArea = () => {
   }, [dictSelector]);
 
   return (
-    <>
-      <Breadcrumb title="Contact Us" />
+    <main>
+      <PageHeader dict={dict} imageSrc={Bg.src} title="Contact Us" />
       <section className="bb-contact__area">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="bb-contact__wrapper ms-contact-space ms-bg-2">
-                <ContactForm dict={dict} />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContactForm dict={dict} />
       </section>
-    </>
+    </main>
   );
 };
 

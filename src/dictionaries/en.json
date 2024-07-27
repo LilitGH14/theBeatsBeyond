@@ -14,7 +14,9 @@
     "logo_img": "Logo",
     "Sign_in": "Sign in",
     "Sign_up": "Sign up",
-    "Contact_us": "Contact us"
+    "Contact_us": "Contact us",
+    "User_Settings":"User Settings",
+    "Logout":"Logout"
   },
   "Footer": {
     "logo_img": "Logo",

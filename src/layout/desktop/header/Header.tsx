@@ -22,6 +22,10 @@ const Header = ({ dict }: HeaderType) => {
     setIsOpen(false);
   };
 
+  const logout = () => {
+    //logout
+  };
+
   return (
     <>
       <header>
@@ -66,7 +70,7 @@ const Header = ({ dict }: HeaderType) => {
                     </div>
                     <div className="bb-header__right">
                       <Language />
-                      {!user && (
+                      {user && (
                         <div className="bb-header__auth-btns">
                           <Link href="/login" className="signin">
                             {dict?.Header?.Sign_in}
@@ -76,14 +80,26 @@ const Header = ({ dict }: HeaderType) => {
                           </Link>
                         </div>
                       )}
-                      {user && (
-                        <div className="bb-header__action-inner">
-                          <div className="bb-header__user__acount d-none d-sm-inline-flex">
-                            <span role="button" onClick={() => setIsOpen(true)}>
-                              <i className="flaticon-user"></i>
-                            </span>
+                      {!user && (
+                        <>
+                          <button onClick={logout} className="logout_btn">
+                            <i
+                              className="fa fa-sign-out"
+                              aria-hidden="true"
+                            ></i>
+                            {dict?.Header?.Logout}
+                          </button>
+                          <div className="bb-header__action-inner">
+                            <div className="bb-header__user-acount">
+                              <span
+                                role="button"
+                                onClick={() => setIsOpen(true)}
+                              >
+                                <i className="flaticon-user"></i>
+                              </span>
+                            </div>
                           </div>
-                        </div>
+                        </>
                       )}
                     </div>
                   </div>

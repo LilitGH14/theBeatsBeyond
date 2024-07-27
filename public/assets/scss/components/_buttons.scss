@@ -37,7 +37,7 @@
   @include flexbox();
   @include border-radius(30px);
   @include transition(0.3s);
-  
+
   font-size: 16px;
   color: var(--clr-common-white);
   font-weight: var(--bd-fw-sbold);
@@ -163,11 +163,7 @@
   width: 45px;
   height: 45px;
   display: inline-block;
-  background: linear-gradient(
-    101.18deg,
-    var(--clr-bg-3) 7.18%,
-    #a76cd1 90.09%
-  );
+  background: linear-gradient(101.18deg, var(--clr-bg-3) 7.18%, #a76cd1 90.09%);
   text-align: center;
   border-radius: 50%;
   color: var(--clr-common-white);
@@ -428,6 +424,11 @@
 .bb-submit-btn {
   .unfill__btn {
     padding: 0 42px;
+
+    @media #{$sm} {
+      width: 100%;
+      margin: 0;
+    }
   }
 }
 

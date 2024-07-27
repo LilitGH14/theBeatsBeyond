@@ -1,16 +1,16 @@
 "use client";
-import { login_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
 import ErrorMsg from "../common/ErrorMsg";
 import { toast } from "react-toastify";
 import { loginUser } from "@/services/auth";
+import { login_schema } from "@/utils/validation-schema";
 
-type LoginFormProps = {
+type authFormProps = {
   dict: { [key: string]: string } | null;
 };
-const LoginForm = ({ dict }: LoginFormProps) => {
+const LoginForm = ({ dict }: authFormProps) => {
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -21,7 +21,7 @@ const LoginForm = ({ dict }: LoginFormProps) => {
       onSubmit: (values, { resetForm }) => {
         loginUser(values).then((res) => {
           if (res.ResponseCode === 200) {
-            toast.success(dict?.Login_successfully);
+            toast.success(dict?.login_successfully);
             resetForm();
           }
         });
@@ -29,46 +29,45 @@ const LoginForm = ({ dict }: LoginFormProps) => {
     });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="bb-input2-box mb-25">
-        <input
-          id="name"
-          type="text"
-          name="email"
-          value={values.email}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          placeholder={dict?.Email}
-          required
-        />
-        {touched.email && <ErrorMsg error={errors.email} />}
-      </div>
-      <div className="bb-input2-box mb-50">
-        <input
-          id="pass"
-          name="password"
-          value={values.password}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          type="password"
-          placeholder={dict?.Password}
-          required
-        />
-        {touched.password && <ErrorMsg error={errors.password} />}
-      </div>
-      <div className="bb-submit-btn mb-40">
-        <button className="unfill__btn d-block w-100" type="submit">
-          {dict?.Login}
-        </button>
-      </div>
-      <div className="bb-not-account mb-35 text-center">
-        <p>
-          {dict?.Dont_have_account}{" "}
-          <Link href="/signup">{dict?.Register_Now}</Link>
-        </p>
-      </div>
-      <div className="bb-forget-pass text-center">
-        <Link href="/forgot-password">{dict?.Forgot_password}</Link>
+    <form onSubmit={handleSubmit} className="container">
+      <div className="row">
+        <div className="bb-auth__input-box col-12">
+          <input
+            id="name"
+            type="text"
+            name="email"
+            value={values.email}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            placeholder={dict?.Email}
+            required
+          />
+          {touched.email && <ErrorMsg error={errors.email} />}
+        </div>
+        <div className="bb-auth__input-box col-12">
+          <input
+            id="pass"
+            name="password"
+            value={values.password}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            type="password"
+            placeholder={dict?.Password}
+            required
+          />
+          {touched.password && <ErrorMsg error={errors.password} />}
+        </div>
+        <div className="bb-auth__input-box col-12">
+          <button className="bb-auth__btn w-100" type="submit">
+            {dict?.Login}
+          </button>
+        </div>
+        <div className="bb-auth__input-box col-12">
+          <p className="bb-auth__link">
+            {dict?.Dont_have_account}
+            <Link href="/signup" className="bb-auth__link-a">{dict?.Register_Now}</Link>
+          </p>
+        </div>
       </div>
     </form>
   );

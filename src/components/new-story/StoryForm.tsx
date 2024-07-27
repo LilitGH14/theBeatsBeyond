@@ -75,8 +75,9 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
             handleDelete={removeWriter}
             handleAddition={addWriters}
-            inputFieldPosition="bottom"
+            inputFieldPosition="inline"
             editable
+            inline
           />
         </div>
         <div className="bb-input-box">
@@ -87,7 +88,7 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
             handleDelete={removeSinger}
             handleAddition={addSingers}
-            inputFieldPosition="bottom"
+            inputFieldPosition="inline"
             editable
           />
         </div>

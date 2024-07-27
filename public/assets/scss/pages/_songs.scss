@@ -1,6 +1,17 @@
 @use "../utils" as *;
 
 .bb-songs {
+  &__select {
+    & > div {
+      background: $bgFilter !important;
+    }
+
+    @media #{$sm} {
+      margin-bottom: 12px;
+      padding: 0;
+    }
+  }
+
   &__bg {
     height: 288px;
     padding: 70px 0;
@@ -8,6 +19,12 @@
     position: relative;
     display: flex;
     align-items: center;
+
+    @media #{$sm} {
+      height: 500px;
+      margin-top: 60px;
+      padding: 0;
+    }
   }
 
   &__title {
@@ -56,6 +73,11 @@
       left: 45px;
       width: 85%;
     }
+
+    @media #{$sm} {
+      margin-bottom: 12px;
+      min-height: 45px;
+    }
   }
 
   &__result-count {
@@ -92,12 +114,34 @@
     &-img {
       width: 100%;
       border-radius: 4px;
+      z-index: 1;
 
       img {
         width: 100%;
         min-height: 200px;
         object-fit: cover;
         border-radius: 4px;
+        height: 155px;
+
+        @media #{$sm} {
+          position: relative;
+          height: 339px;
+          border-radius: 16px;
+        }
+      }
+
+      @media #{$sm} {
+        &::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          inset-inline-start: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0.8;
+          z-index: 2;
+          background: #181818a8;
+        }
       }
     }
 
@@ -116,16 +160,25 @@
         font-size: 14px;
         color: $textColorPrimary;
         margin-bottom: 20px;
+        text-align: left;
       }
 
       &-rating {
         position: absolute;
         color: $textColorPrimary;
       }
+
+      @media #{$sm} {
+        position: absolute;
+        padding: 20px;
+        text-align: center;
+        z-index: 3;
+      }
     }
 
     @media #{$sm} {
-      padding: 20px;
+      padding: 0;
+      flex-direction: column;
     }
 
     &-details {
@@ -138,6 +191,10 @@
 
       .nav-tabs {
         border: none;
+      }
+
+      @media #{$sm} {
+        margin-top: 60px;
       }
     }
 
@@ -196,6 +253,9 @@
   }
 
   &__info {
+    background-color: $songDetailsBg;
+    border-radius: 4px;
+    
     &-title {
       padding: 25px 30px;
       line-height: 1;

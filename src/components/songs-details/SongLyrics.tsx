@@ -129,13 +129,14 @@ const SongLyrics = ({ dict, content }: SongLyricsType) => {
               {dict?.Generate_now}
             </button>
           ) : (
-            <button
-              className="generate-btn"
-              type="submit"
-              onClick={() => changeLyrics()}
-            >
-              {dict?.Change_lyrics}
-            </button>
+            <></>
+            // <button
+            //   className="generate-btn"
+            //   type="submit"
+            //   onClick={() => changeLyrics()}
+            // >
+            //   {dict?.Change_lyrics}
+            // </button>
           )}
         </div>
       </form>

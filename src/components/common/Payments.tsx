@@ -33,10 +33,10 @@ const Payments = ({ dict }: PaymentsProps) => {
     });
 
   return (
-    <form onSubmit={handleSubmit} className="mt-30 payment-form-wrapper row">
-      <div className="bb-input2-box mb-20">
+    <form onSubmit={handleSubmit} className="payment-form-wrapper row">
+      <div className="bb-input-box col-12">
         {dict?.Cards}
-        <div className="d-flex mt-10 mb-10 payment_methods-wrapper">
+        <div className="payment_methods-wrapper">
           {[master, visa, paypal].map((payment, i) => {
             return (
               <Image
@@ -53,7 +53,7 @@ const Payments = ({ dict }: PaymentsProps) => {
           })}
         </div>
       </div>
-      <div className="bb-input2-box mb-20 col-12">
+      <div className="bb-input-box col-12">
         <input
           id="fullname"
           type="text"
@@ -66,7 +66,7 @@ const Payments = ({ dict }: PaymentsProps) => {
         />
         {touched.fullname && <ErrorMsg error={errors.fullname} />}
       </div>
-      <div className="bb-input2-box mb-20 col-12">
+      <div className="bb-input-box col-12">
         <input
           id="cardNumber"
           type="number"
@@ -79,7 +79,7 @@ const Payments = ({ dict }: PaymentsProps) => {
         />
         {touched.cardNumber && <ErrorMsg error={errors.cardNumber} />}
       </div>
-      <div className="bb-input2-box mb-20 col-12 d-flex date">
+      <div className="bb-input-box col-12 d-flex date">
         <input
           id="expMonth"
           type="number"
@@ -111,7 +111,7 @@ const Payments = ({ dict }: PaymentsProps) => {
           required
         />
       </div>
-      <div className="bb-submit-btn mb-10">
+      <div className="bb-submit-btn">
         <button className="unfill__btn d-block w-100" type="submit">
           {dict?.Save}
         </button>

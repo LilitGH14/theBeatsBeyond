@@ -15,7 +15,7 @@
     margin-bottom: 30px;
     position: relative;
 
-    label{
+    label {
       color: $textColorPrimary;
     }
 
@@ -24,7 +24,7 @@
     textarea {
       width: 100%;
       background: #1b1b1b;
-      border: 1px solid var(--clr-border-3);
+      border: 1px solid $borderInput;
       border-radius: 16px;
       height: 65px;
       color: $textColorPrimary;
@@ -37,23 +37,16 @@
       }
 
       &:focus {
-        border: 1px solid var(--clr-border-2);
+        border: 1px solid $borderFocused;
       }
     }
 
     textarea {
-      resize: none;
-      outline: 0;
       padding: 20px 12px;
       min-height: 175px;
-      border-radius: 16px;
 
       @media #{$sm} {
         padding: 20px 20px;
-      }
-
-      &:focus {
-        border: 1px solid var(--clr-border-2);
       }
     }
   }

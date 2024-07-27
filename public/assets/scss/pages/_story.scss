@@ -148,13 +148,37 @@
       }
     }
 
+    .nice-select .list {
+      display: flex;
+      flex-wrap: wrap;
+      z-index: 999;
+      border: 1px solid grey;
+    }
+
+    .tag-wrapper,
+    .mood-tag {
+      color: $descriptionColorSecondary;
+      background: #414141;
+      margin-right: 10px;
+      padding: 5px;
+      border-radius: 4px;
+
+      svg,i {
+        margin-left: 10px;
+      }
+    }
+
+    .ReactTags__tagInput {
+      margin-top: 10px;
+    }
+
     .bb-input-box {
       margin-bottom: 20px;
       position: relative;
       display: flex;
       flex-direction: column;
 
-      label{
+      label {
         color: $textColorPrimary;
         margin-bottom: 10px;
       }

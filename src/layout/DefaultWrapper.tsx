@@ -26,23 +26,29 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   const dispatch = useDispatch();
 
   const selectedLang = useSelector((store: any) => store.general.selectedLang);
-  const dictSelector = useSelector((store: any) => store.general.dictionary);
 
   const [dict, setDict] = useState<any>({});
+  const [open, setOpen] = useState<boolean>(true);
+
+  const toggle = () => {
+    setOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     LanguageProvider.getDictionary(selectedLang).then((res: any) => {
       dispatch(setTranslations(res));
+      setDict(res);
     });
   }, [dispatch, selectedLang]);
 
-  useEffect(() => {
-    dictSelector && setDict(dictSelector);
-  }, [dictSelector]);
-
   return (
     <>
-      {isMobile ? <MobileHeader dict={dict} /> : <Header dict={dict} />}
+      {isMobile ? (
+        <MobileHeader dict={dict} toggle={toggle} />
+      ) : (
+        <Header dict={dict} />
+      )}
+      {isMobile && <MobileMenu open={open} dict={dict} />}
       <UseGsapAnimation>{children}</UseGsapAnimation>
       {isMobile ? (
         <MobileFooter dict={dict?.Footer} />

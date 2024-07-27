@@ -586,7 +586,7 @@ a:visited.ui-button,
 .nice-select {
   color: $textColorPrimary;
   border: 1px solid $borderInput;
-  background: $bgFilter;
+  // background: $bgFilter;
   padding: 10px 15px;
 
   .current {
@@ -598,7 +598,7 @@ a:visited.ui-button,
   }
 
   .list {
-    background-color: var(--clr-bg-2);
+    background-color: $bgPrimary;
     inset-inline-start: unset;
     inset-inline-start: 0;
 

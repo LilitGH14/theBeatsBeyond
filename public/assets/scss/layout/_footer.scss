@@ -212,6 +212,10 @@
     z-index: 11;
     padding: 20px;
 
+    a {
+      color: $textColorPrimary;
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -261,6 +265,7 @@
 
         a {
           margin: 0 20px;
+          color: $textColorPrimary;
         }
       }
     }

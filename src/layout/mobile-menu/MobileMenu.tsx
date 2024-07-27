@@ -1,134 +1,73 @@
+import Language from "@/components/common/Language";
 import menu_data from "../../constants/menu-data";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { imageLoader } from "@/hooks/ImageLoader";
+import avatar from "../../../public/assets/img/avatars/suga.jpg";
+import { useSelector } from "react-redux";
+import Modal from "@/components/common/Modal";
+import UserSettings from "@/components/common/UsetSettings";
 
-const MobileMenu = () => {
-  const [openSubMenu, setopenSubMenu] = useState<boolean>(false);
-  const [subMenuNum, setsubMenuNum] = useState<number>(0);
-  const [openMegaMenu, setopenMegaMenu] = useState<boolean>(false);
-  const [megaMenuNum, setmegaMenuNum] = useState<number>(0);
-  const [opensubMegaMenu, setopensubMegaMenu] = useState<boolean>(false);
-  const [megasubMenuNum, setmegasubMenuNum] = useState<number>(0);
+type MobileMenuProps = {
+  open: boolean;
+  dict: any;
+};
+const MobileMenu = ({ open, dict }: MobileMenuProps) => {
+  const user = useSelector((store: any) => store.auth.user);
 
-  const handleActiveSubMenu = (index: number): void => {
-    setopenSubMenu(!openSubMenu);
-    setsubMenuNum(index);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
-  const handleActiveMegaMenu = (index: number): void => {
-    setopenMegaMenu(!openMegaMenu);
-    setmegaMenuNum(index);
-  };
+  useEffect(() => {
+    open && document.body.setAttribute("style", "overflow:hidden");
 
-  const handleActivesubMegaMenu = (index: number): void => {
-    setopensubMegaMenu(!opensubMegaMenu);
-    setmegasubMenuNum(index);
-  };
+    return () => {
+      document.body.removeAttribute("style");
+    };
+  }, [open]);
 
   return (
-    <ul>
-      {menu_data?.map((item) => (
-        <li
-          key={item.id}
-          className={`${item.hasDropdown === true ? "has-dropdown" : ""} ${
-            item.megaMenu === true ? "has-mega-menu" : ""
-          } ${
-            openMegaMenu && megaMenuNum === item.id ? "dropdown-opened" : ""
-          }`}
-        >
-          <Link href={item.link}>{item.title}</Link>
-          {item?.hasDropdown === true && (
-            <>
-              {item.submenus?.map((subItem, index) => (
-                <ul
-                  key={index}
-                  className="submenu"
-                  style={{
-                    display:
-                      openSubMenu && subMenuNum === item.id ? "block" : "none",
-                  }}
-                >
-                  <li>
-                    <Link href={subItem.link}>{subItem.title}</Link>
-                  </li>
-                </ul>
-              ))}
-            </>
-          )}
-          {item?.megaMenu === true && (
-            <ul
-              className="mega-menu"
-              style={{
-                display:
-                  openMegaMenu && megaMenuNum === item.id ? "block" : "none",
-              }}
-            >
-              {item?.mega_menus?.map((megaItem, mIndex) => (
-                <li key={mIndex}>
-                  <Link href="#" className="mega-menu-title">
-                    {megaItem.title}
-                  </Link>
-                  <ul
-                    style={{
-                      display:
-                        opensubMegaMenu && megasubMenuNum === mIndex
-                          ? "block"
-                          : "none",
-                    }}
-                  >
-                    {megaItem?.submenus?.length &&
-                      megaItem?.submenus?.map((subMegaItem, subMegaIndex) => (
-                        <li key={subMegaIndex}>
-                          <Link href={subMegaItem.link}>
-                            {" "}
-                            {subMegaItem.title}{" "}
-                          </Link>
-                        </li>
-                      ))}
-                  </ul>
-                  <Link
-                    onClick={() => handleActivesubMegaMenu(mIndex)}
-                    className={`mean-expand ${
-                      opensubMegaMenu && megasubMenuNum === mIndex
-                        ? "mean-clicked"
-                        : ""
-                    }`}
-                    href="#"
-                    style={{ fontSize: "18px" }}
-                  >
-                    <i className="fal fa-plus"></i>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-          {item?.hasDropdown === true && (
-            <Link
-              onClick={() => handleActiveSubMenu(item.id)}
-              className={`mean-expand ${
-                openSubMenu && subMenuNum === item.id ? "mean-clicked" : ""
-              }`}
-              href="#"
-              style={{ fontSize: "18px" }}
-            >
-              <i className="fal fa-plus"></i>
-            </Link>
-          )}
-          {item?.megaMenu === true && (
-            <Link
-              onClick={() => handleActiveMegaMenu(item.id)}
-              className={`mean-expand ${
-                openMegaMenu && megaMenuNum === item.id ? "mean-clicked" : ""
-              }`}
-              href="#"
-              style={{ fontSize: "18px" }}
-            >
-              <i className="fal fa-plus"></i>
-            </Link>
-          )}
+    <>
+      <ul className={`bb-mobile-menu__area ${open ? "open" : ""}`}>
+        <li className="bb-mobile-menu__user-info">
+          <Image
+            loader={imageLoader}
+            priority
+            width={143}
+            height={45}
+            src={avatar}
+            alt={dict?.Header?.Avatar_alt as string}
+          />
+          <span>John Doe</span>
         </li>
-      ))}
-    </ul>
+        <hr />
+        {menu_data?.map((item) => (
+          <li key={item.id}>
+            <Link href={item.link}>{dict?.Header?.[item.title]}</Link>
+          </li>
+        ))}
+        <hr />
+        <li>
+          <Language />
+        </li>
+        <hr />
+        <li role="button" onClick={() => setIsOpen(true)}>
+          {dict?.Header?.User_Settings}
+        </li>
+      </ul>
+      <Modal
+        open={modalIsOpen}
+        close={closeModal}
+        title={dict?.UserSettings?.Title as string}
+        className="user-settings"
+      >
+        <UserSettings policyActive="active" dict={dict?.UserSettings} />
+      </Modal>
+    </>
   );
 };
 

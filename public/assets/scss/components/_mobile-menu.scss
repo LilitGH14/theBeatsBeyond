@@ -1,0 +1,53 @@
+@use "../utils" as *;
+
+.bb-mobile-menu {
+  &__area {
+    position: absolute;
+    z-index: 10;
+    background: $userSettingsMobileBg;
+    width: 100vw;
+    height: 100vh;
+    padding: 12px 20px;
+    top: 60px;
+    overflow-y: auto;
+    transition: all 0.5s linear;
+    left: -100%;
+    right: 0;
+
+    &.open {
+      left: 0;
+    }
+
+    li {
+      color: $textColorPrimary;
+      padding: 12px;
+
+      &::marker {
+        color: transparent;
+      }
+    }
+
+    hr {
+      border-bottom: 1px solid $userSettingsMobileBorderColor;
+      margin: 0;
+    }
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: 50px;
+      width: 50px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+    }
+
+    span {
+      text-align: center;
+      color: $textColorPrimary;
+    }
+  }
+}

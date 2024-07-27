@@ -31,9 +31,9 @@ const ContactForm = ({ dict }: ContactFormProps) => {
     });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-lg-6 col-sm-12">
           <div className="bb-contact__input-box">
             <input
               type="text"
@@ -47,7 +47,7 @@ const ContactForm = ({ dict }: ContactFormProps) => {
             {touched.name && <ErrorMsg error={errors.name} />}
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-lg-6 col-sm-12">
           <div className="bb-contact__input-box">
             <input
               name="email"
@@ -62,7 +62,7 @@ const ContactForm = ({ dict }: ContactFormProps) => {
             {touched.email && <ErrorMsg error={errors.email} />}
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-lg-6 col-sm-12">
           <div className="bb-contact__input-box">
             <input
               type="text"
@@ -76,7 +76,7 @@ const ContactForm = ({ dict }: ContactFormProps) => {
             {touched.subject && <ErrorMsg error={errors.subject} />}
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-lg-6 col-sm-12">
           <div className="bb-contact__input-box">
             <input
               type="text"
@@ -90,7 +90,7 @@ const ContactForm = ({ dict }: ContactFormProps) => {
             {touched.number && <ErrorMsg error={errors.number} />}
           </div>
         </div>
-        <div className="col-md-12">
+        <div className="col-12 col-sm-12">
           <div className="bb-contact__input-box">
             <textarea
               cols={30}

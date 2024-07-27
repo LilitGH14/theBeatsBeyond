@@ -8,6 +8,12 @@
     position: relative;
     display: flex;
     align-items: center;
+    
+    @media #{$sm} {
+      height: 200px;
+      margin-top: 60px;
+      padding: 0;
+    }
   }
 
   &__content {
@@ -15,6 +21,11 @@
       font-size: 2rem;
       color: $primaryTextColor;
       margin-bottom: 30px;
+
+      @media #{$sm} {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+      }
     }
 
     &-description {
