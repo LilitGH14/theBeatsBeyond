@@ -1,5 +1,6 @@
 const nextConfig = {
-  reactStrictMode: true,
+  output: 'export',
+  reactStrictMode: false,
   swcMinify: true,
   typescript: {
     ignoreBuildErrors: true,

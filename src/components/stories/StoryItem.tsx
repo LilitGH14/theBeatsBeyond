@@ -5,15 +5,19 @@ import blogBgImage from "../../../public/assets/img/blog/story.jpg";
 
 type StoryItemProps = {
   dict: { [key: string]: string };
-  id: string;
+  id: number;
   date: string;
   username: string;
   title: string;
 };
 const StoryItem = ({ dict, id, date, username, title }: StoryItemProps) => {
+  const openDetails = () => {
+    localStorage.setItem("story_id", id.toString());
+  };
+
   return (
-    <Link href={`/story-details/${id}`}>
-      <div className="bb-story__item">
+    <Link href={`/story-details`}>
+      <div className="bb-story__item" role="button" onClick={openDetails}>
         <div className="bb-story__img ms-overlay10 fix ms-br-15 p-relative zindex-10">
           <Image
             src={blogBgImage}

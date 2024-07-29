@@ -10,7 +10,7 @@ import { fetchStoriesData } from "@/services/stories";
 
 const StoriesMainArea = () => {
   const dictSelector = useSelector(
-    (store: any) => store.general.dictionary.StoriesPage
+    (store: any) => store.general.dictionary?.StoriesPage
   );
 
   const [storiesData, setStoriesData] = useState<StoryType[]>([]);
@@ -48,7 +48,7 @@ const StoriesMainArea = () => {
             {storiesData.slice(...slicedIndex).map((item: StoryType) => (
               <div className="col-xl-3 col-md-6" key={item.id}>
                 <StoryItem
-                  id={"story_" + item.id}
+                  id={item.id}
                   dict={dict}
                   date={item.date}
                   username={item.username}

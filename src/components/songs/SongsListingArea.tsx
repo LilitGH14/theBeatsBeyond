@@ -25,6 +25,10 @@ const SongsListingArea = ({
   songs,
   slicedIndex,
 }: SongsListingAreaProps) => {
+  const openDetails = (id: number) => {
+    localStorage.setItem("song_id", id.toString());
+  };
+
   return (
     <div className="container">
       <div className="bb-songs__border">
@@ -45,8 +49,13 @@ const SongsListingArea = ({
         >
           <div className="row">
             {songs.slice(...slicedIndex).map((item) => (
-              <div className="col-xl-6" key={item.id}>
-                <Link href={`/song-details/${item.id}`}>
+              <div
+                className="col-xl-6"
+                key={item.id}
+                role="button"
+                onClick={() => openDetails(item.id)}
+              >
+                <Link href={`/song-details`}>
                   <div className="bb-songs__item">
                     <div className="bb-songs__item-img">
                       <Image

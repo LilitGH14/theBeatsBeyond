@@ -19,7 +19,7 @@ const SongsDetailsMainArea = () => {
   const [song, setSong] = useState<SongType>();
 
   useEffect(() => {
-    const id = +pathname.split("/")[pathname.split("/").length - 1];
+    const id = +(localStorage.getItem("song_id") as string);
 
     fetchSongDataById(id).then((res) => {
       if (res.ResponseCode == 200) {
@@ -35,7 +35,7 @@ const SongsDetailsMainArea = () => {
   return (
     <section className="bb-songs__item-details">
       <div className="container">
-      <h3 className="bb-songs__item-details-title">Details</h3>
+        <h3 className="bb-songs__item-details-title">Details</h3>
         <div className="row">
           <div className="col-lg-8">
             <NavProfileTab />

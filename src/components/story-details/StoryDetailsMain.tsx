@@ -12,7 +12,7 @@ const StoryDetailsMain = () => {
   const pathname = usePathname();
 
   const dictSelector = useSelector(
-    (store: any) => store.general.dictionary.StoriesPage
+    (store: any) => store.general?.dictionary?.StoriesPage
   );
 
   const [dict, setDict] = useState<{ [key: string]: string }>({});
@@ -30,9 +30,7 @@ const StoryDetailsMain = () => {
   }, [dictSelector]);
 
   useEffect(() => {
-    const id = +pathname
-      .split("/")
-      [pathname.split("/").length - 1].replace("story_", "");
+    const id = +(localStorage.getItem("story_id") as string);
 
     fetchStoryById(id).then((res) => {
       if (res.ResponseCode == 200) {
