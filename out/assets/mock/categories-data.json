@@ -1,0 +1,53 @@
+{
+  "ResponseCode": 200,
+  "ResponseData": [
+    {
+      "id": 1,
+      "image": "image1",
+      "title": "Song 1",
+      "category": "New"
+    },
+    {
+      "id": 2,
+      "image": "image2",
+      "title": "Song 2",
+      "category": "New"
+    },
+    {
+      "id": 3,
+      "image": "image3",
+      "title": "Song 3",
+      "category": "Duets"
+    },
+    {
+      "id": 4,
+      "image": "image4",
+      "title": "Song 4",
+      "category": "Duets"
+    },
+    {
+      "id": 5,
+      "image": "image1",
+      "title": "Song 5",
+      "category": "Groups"
+    },
+    {
+      "id": 6,
+      "image": "image2",
+      "title": "Song 6",
+      "category": "Groups"
+    },
+    {
+      "id": 7,
+      "image": "image3",
+      "title": "Song 7",
+      "category": "Groups"
+    },
+    {
+      "id": 8,
+      "image": "image4",
+      "title": "Song 8",
+      "category": "Solos"
+    }
+  ]
+}
