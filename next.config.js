@@ -1,6 +1,6 @@
 const nextConfig = {
   output: 'export',
-  distDir: "build",
+  distDir: "out",
   reactStrictMode: false,
   swcMinify: true,
   typescript: {
