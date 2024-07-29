@@ -1,0 +1,77 @@
+{
+  "ResponseCode": 200,
+  "ResponseData": {
+    "id": 1,
+    "audioUrl": "3FWSZ6lvaSk",
+    "songGivenName": "The Different Lights",
+    "description": "Outstanding wedding band playing chart, indie, rock anthems and Britpop and featuring guitars, keyboards.",
+    "isGenerated": false,
+    "songName": "Snooze",
+    "username": "User 001",
+    "category": "Duet",
+    "duration":"2*60",
+    "lyrics": {
+      "default": {
+        "Intro: youjeen": ["순이 피어, 숨이 내쉬어", "바람이 불어"],
+        "Chorus 1: youjeen/editable/": [
+          "순이 피어, 숨이 내쉬어",
+          "바람이 불어, take my desire",
+          "순이 피어, 숨이 내쉬어",
+          "바람이 불어, take my desire"
+        ],
+        "Verse 1: RM": [
+          "겁 많던 아이는 겁 많던 대로",
+          "기억나 나 14살 때도",
+          "겁 많던 아이는 겁 많던 대로",
+          "세계는 넓고 난 너무 작았네도",
+          "이제 난 세계를 너무 많이 봐버렸지",
+          "하늘보다 높이 난 나고 나버렸지",
+          "난 원래 비둘기, 새끼 때부터 갈매기",
+          "나의 욕심이 있다면 하늘을 나는 거지"
+        ],
+        "Pre-Chorus 1: youjeen": [
+          "순이 피어, 숨이 내쉬어",
+          "바람이 불어, take my desire"
+        ],
+        "Chorus 2: youjeen/editable/": [
+          "순이 피어, 숨이 내쉬어",
+          "바람이 불어, take my desire",
+          "순이 피어, 숨이 내쉬어",
+          "바람이 불어, take my desire"
+        ]
+      },
+      "en": {
+        "Intro: youjeen": [
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows"
+        ],
+        "Chorus 1: youjeen": [
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows, take my desire",
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows, take my desire"
+        ],
+        "Verse 1: RM": [
+          "A timid child remains timid",
+          "I remember when I was 14",
+          "A timid child remains timid",
+          "The world was vast, and I was so small",
+          "Now I’ve seen too much of the world",
+          "I’ve flown higher than the sky",
+          "I was originally a pigeon, a seagull since I was a baby",
+          "If I had a greed, it’s to fly in the sky"
+        ],
+        "Pre-Chorus 1: youjeen": [
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows, take my desire"
+        ],
+        "Chorus 2: youjeen": [
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows, take my desire",
+          "Flowers bloom, breathes are exhaled",
+          "The wind blows, take my desire"
+        ]
+      }
+    }
+  }
+}

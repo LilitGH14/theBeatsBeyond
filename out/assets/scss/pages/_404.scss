@@ -1,0 +1,46 @@
+@use "../utils" as *;
+
+.bt-error {
+  &-container {
+    padding: 100px 0;
+
+    @media #{$sm} {
+      display: flex;
+      align-items: center;
+      padding: 30px 0;
+      height: 100vh;
+      height: 100svh;
+    }
+  }
+
+  &-wrapper {
+    text-align: center;
+  }
+
+  &-thumb {
+    img {
+      max-width: 650px;
+      margin-bottom: 30px;
+      object-fit: cover;
+      width: 350px;
+      height: auto;
+
+      @media #{$sm} {
+        width: 250px;
+      }
+    }
+  }
+
+  &-content {
+    &-subtitle {
+      font-size: 32px;
+      line-height: 1.4;
+      color: #a76cd1;
+      margin-bottom: 30px;
+
+      @media #{$sm} {
+        font-size: 20px;
+      }
+    }
+  }
+}
