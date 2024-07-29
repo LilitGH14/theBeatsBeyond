@@ -128,7 +128,7 @@ const Footer = ({ dict }: FooterType) => {
           <div className="bb-footer-copy">
             <span>{dict?.All_Rights_Reserved}</span>
             <span>©</span>
-            <span>The Beats Beyond 2024 v3</span>
+            <span>The Beats Beyond 2024 V3</span>
           </div>
         </div>
       </div>
