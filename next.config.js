@@ -1,5 +1,5 @@
 const nextConfig = {
-  // output: 'export',
+  output: 'export',
   reactStrictMode: false,
   swcMinify: true,
   typescript: {
