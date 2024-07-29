@@ -1,0 +1,52 @@
+.primary-filled-btn {
+  color: white;
+  background: linear-gradient(
+    142.4deg,
+    rgb(147, 75, 164) 5%,
+    rgb(109, 78, 142) 28.2%,
+    rgb(77, 83, 152) 62.5%,
+    rgb(50, 53, 90) 89.1%
+  );
+
+  &:hover {
+    background: linear-gradient(
+      142.4deg,
+      rgb(147, 75, 164) 5%,
+      rgb(109, 78, 142) 28.2%,
+      rgb(77, 83, 152) 62.5%,
+      rgb(50, 53, 90) 89.1%
+    );
+  }
+}
+
+.primary-outlined-btn {
+  color: white;
+  border: 1px solid rgb(103, 73, 134);
+
+  &:hover {
+    border: 1px solid rgb(103, 73, 134);
+  }
+}
+
+.secondary-filled-btn {
+  color: #ffffff;
+  border: 1px solid #414141;
+
+  &.active {
+    background: #6469b7;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.bt-btn-lg {
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 16px;
+  display: inline-block;
+}
