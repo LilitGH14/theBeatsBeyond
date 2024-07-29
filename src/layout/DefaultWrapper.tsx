@@ -28,7 +28,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   const selectedLang = useSelector((store: any) => store.general.selectedLang);
 
   const [dict, setDict] = useState<any>({});
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   const toggle = () => {
     setOpen((prev) => !prev);

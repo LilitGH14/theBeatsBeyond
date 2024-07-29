@@ -28,7 +28,7 @@ const HomePageBanner = ({ dict }: HomePageBannerProps) => {
                     <div className="bb-banner_btns_wrapper">
                       <Link
                         className="unfill__btn feature-unfill_btn"
-                        href="/blog"
+                        href="/songs"
                       >
                         {dict?.Leave_story_btn}
                       </Link>
