@@ -1,0 +1,63 @@
+@use "../utils" as *;
+
+.bb-page-header {
+  &__inner {
+    height: 288px;
+    padding: 70px 0;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    @media #{$sm} {
+      height: 200px;
+      margin-top: 60px;
+      padding: 0;
+    }
+  }
+
+  &__content {
+    &-title {
+      font-size: 2rem;
+      color: $primaryTextColor;
+      margin-bottom: 30px;
+
+      @media #{$sm} {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+      }
+    }
+
+    &-description {
+      font-size: 18px;
+      line-height: 1.8;
+      color: $primaryTitleColor;
+      text-transform: capitalize;
+      margin-bottom: 65px;
+    }
+
+    &-btn {
+      color: $textColorPrimary;
+      background: linear-gradient(
+        142.4deg,
+        rgb(195, 101, 218) 5%,
+        rgb(156, 110, 206) 28.2%,
+        rgb(111, 119, 216) 62.5%,
+        rgb(93, 97, 161) 89.1%
+      );
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 30px;
+      display: inline-block;
+      padding: 0 20px;
+      height: 40px;
+      line-height: 40px;
+      width: fit-content;
+      margin: 20px 0;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
