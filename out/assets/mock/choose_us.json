@@ -1,0 +1,26 @@
+{
+  "ResponseCode": 200,
+  "ResponseData": [
+    {
+      "id": 1,
+      "icon": "flaticon-dollar",
+      "serialNum": "01",
+      "title": "Choose_us_title1",
+      "text": "Choose_us_text1"
+    },
+    {
+      "id": 2,
+      "icon": "flaticon-theater",
+      "serialNum": "02",
+      "title": "Choose_us_title2",
+      "text": "Choose_us_text3"
+    },
+    {
+      "id": 3,
+      "icon": "flaticon-verified",
+      "serialNum": "03",
+      "title": "Choose_us_title3",
+      "text": "Choose_us_text3"
+    }
+  ]
+}
