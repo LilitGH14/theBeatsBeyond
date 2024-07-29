@@ -48,7 +48,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
       ) : (
         <Header dict={dict} />
       )}
-      {isMobile && <MobileMenu open={open} dict={dict} />}
+      {isMobile && <MobileMenu open={open} dict={dict} toggle={toggle} />}
       <UseGsapAnimation>{children}</UseGsapAnimation>
       {isMobile ? (
         <MobileFooter dict={dict?.Footer} />

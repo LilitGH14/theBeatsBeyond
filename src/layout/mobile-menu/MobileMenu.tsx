@@ -11,15 +11,21 @@ import UserSettings from "@/components/common/UsetSettings";
 
 type MobileMenuProps = {
   open: boolean;
+  toggle: () => void;
   dict: any;
 };
-const MobileMenu = ({ open, dict }: MobileMenuProps) => {
+const MobileMenu = ({ open, dict, toggle }: MobileMenuProps) => {
   const user = useSelector((store: any) => store.auth.user);
 
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+  const selectMenuItem = () => {
+    setIsOpen(true);
+    toggle();
   };
 
   useEffect(() => {
@@ -55,7 +61,7 @@ const MobileMenu = ({ open, dict }: MobileMenuProps) => {
           <Language />
         </li>
         <hr />
-        <li role="button" onClick={() => setIsOpen(true)}>
+        <li role="button" onClick={selectMenuItem}>
           {dict?.Header?.User_Settings}
         </li>
       </ul>

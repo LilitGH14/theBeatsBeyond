@@ -485,6 +485,11 @@
                 }
               }
             }
+
+            @media #{$sm} {
+             width: 70vw;
+             width: 70svw;
+            }
           }
         }
       }

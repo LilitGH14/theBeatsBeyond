@@ -125,7 +125,8 @@
 
         @media #{$sm} {
           position: relative;
-          height: 339px;
+          height: inherit;
+          width: inherit;
           border-radius: 16px;
         }
       }
