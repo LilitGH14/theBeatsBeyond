@@ -36,6 +36,8 @@
       border: none !important;
       padding: 0 10px !important;
       margin-top: 20px;
+      display: flex;
+      flex-direction: column;
 
       li {
         padding: 0 !important;

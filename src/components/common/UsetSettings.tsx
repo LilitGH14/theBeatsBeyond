@@ -1,28 +1,48 @@
 "use client";
 import React from "react";
 import Payments from "./Payments";
+import TermsCondition from "../privacy-terms-refund/TermsCondition";
+import PrivacyPolicy from "../privacy-terms-refund/PrivacyPolicy";
 
 type UserSettingsProps = {
-  termsActive?: string;
-  policyActive?: string;
-  dict: { [key: string]: string } | null;
+  dict: { [key: string]: string } | any;
 };
-const UserSettings = ({
-  termsActive,
-  policyActive,
-  dict,
-}: UserSettingsProps) => {
+const UserSettings = ({ dict }: UserSettingsProps) => {
   return (
     <section className="terms_conditions_section">
       <div className="row">
-        <div className="col-xl-2 col-lg-4">
+        <div className="col-lg-3">
           <ul
             className="nav tabs_nav_boxed unordered_list_block"
             role="tablist"
           >
             <li role="presentation">
               <button
-                className={policyActive ?? ""}
+                className="active"
+                data-bs-toggle="tab"
+                data-bs-target="#tab_personal_info"
+                type="button"
+                role="tab"
+                aria-selected="true"
+              >
+                <i className="fas fa-circle"></i>
+                <span>{dict?.UserSettings?.Personal_info}</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button
+                data-bs-toggle="tab"
+                data-bs-target="#tab_payments"
+                type="button"
+                role="tab"
+                aria-selected="false"
+              >
+                <i className="fas fa-circle"></i>
+                <span>{dict?.UserSettings?.Payments}</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button
                 data-bs-toggle="tab"
                 data-bs-target="#tab_privacy_policy"
                 type="button"
@@ -30,12 +50,11 @@ const UserSettings = ({
                 aria-selected="false"
               >
                 <i className="fas fa-circle"></i>
-                <span>{dict?.Personal_info}</span>
+                <span>{dict?.UserSettings?.Privacy_policy}</span>
               </button>
             </li>
             <li role="presentation">
               <button
-                className={termsActive ?? ""}
                 data-bs-toggle="tab"
                 data-bs-target="#tab_terms_conditions"
                 type="button"
@@ -43,26 +62,40 @@ const UserSettings = ({
                 aria-selected="false"
               >
                 <i className="fas fa-circle"></i>
-                <span>{dict?.Payments}</span>
+                <span>{dict?.UserSettings?.Terms_and_conditions}</span>
               </button>
             </li>
           </ul>
         </div>
-        <div className="col-xl-10 col-lg-8">
+        <div className="col-lg-9">
           <div className="tab-content">
             <div
-              className={`tab-pane fade show ${policyActive ?? ""}`}
+              className={`tab-pane fade show active`}
+              id="tab_personal_info"
+              role="tabpanel"
+            >
+              ...
+            </div>
+            <div
+              className={`tab-pane fade show`}
+              id="tab_payments"
+              role="tabpanel"
+            >
+              <Payments dict={dict?.UserSettings} />
+            </div>
+            <div
+              className={`tab-pane fade show`}
               id="tab_privacy_policy"
               role="tabpanel"
             >
-              Personal info
+              <PrivacyPolicy dict={dict?.PrivacyTermsPage} />
             </div>
             <div
-              className={`tab-pane fade show ${termsActive ?? ""}`}
+              className={`tab-pane fade show`}
               id="tab_terms_conditions"
               role="tabpanel"
             >
-              <Payments dict={dict} />
+              <TermsCondition dict={dict?.PrivacyTermsPage} />
             </div>
           </div>
         </div>

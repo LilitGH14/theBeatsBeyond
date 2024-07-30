@@ -71,7 +71,7 @@ const MobileMenu = ({ open, dict, toggle }: MobileMenuProps) => {
         title={dict?.UserSettings?.Title as string}
         className="user-settings"
       >
-        <UserSettings policyActive="active" dict={dict?.UserSettings} />
+        <UserSettings dict={dict?.UserSettings} />
       </Modal>
     </>
   );

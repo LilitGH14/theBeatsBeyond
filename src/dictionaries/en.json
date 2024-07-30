@@ -15,8 +15,8 @@
     "Sign_in": "Sign in",
     "Sign_up": "Sign up",
     "Contact_us": "Contact us",
-    "User_Settings":"User Settings",
-    "Logout":"Logout"
+    "User_Settings": "User Settings",
+    "Logout": "Logout"
   },
   "Footer": {
     "logo_img": "Logo",
@@ -257,6 +257,8 @@
     "Title": "User Settings",
     "Personal_info": "Personal info",
     "Payments": "Payments",
+    "Privacy_policy": "Privacy policy",
+    "Terms_and_conditions": "Terms and conditions",
     "Name_on_card": "Name On Card",
     "Credit_card_number": "Credit card number",
     "Exp_month": "Exp. month",

@@ -82,13 +82,6 @@ const Header = ({ dict }: HeaderType) => {
                       )}
                       {!user && (
                         <>
-                          <button onClick={logout} className="logout_btn">
-                            <i
-                              className="fa fa-sign-out"
-                              aria-hidden="true"
-                            ></i>
-                            {dict?.Header?.Logout}
-                          </button>
                           <div className="bb-header__action-inner">
                             <div className="bb-header__user-acount">
                               <span
@@ -99,6 +92,13 @@ const Header = ({ dict }: HeaderType) => {
                               </span>
                             </div>
                           </div>
+                          <button onClick={logout} className="logout_btn">
+                            <i
+                              className="fa fa-sign-out"
+                              aria-hidden="true"
+                            ></i>
+                            {dict?.Header?.Logout}
+                          </button>
                         </>
                       )}
                     </div>
@@ -115,7 +115,7 @@ const Header = ({ dict }: HeaderType) => {
         title={dict?.UserSettings?.Title as string}
         className="user-settings"
       >
-        <UserSettings policyActive="active" dict={dict?.UserSettings} />
+        <UserSettings dict={dict} />
       </Modal>
     </>
   );
