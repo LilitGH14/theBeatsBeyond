@@ -1,6 +1,6 @@
 const nextConfig = {
   output: "export",
-  distDir: "out",
+  distDir: "betta",
   reactStrictMode: false,
   swcMinify: true,
   typescript: {
