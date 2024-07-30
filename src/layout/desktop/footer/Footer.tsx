@@ -85,28 +85,6 @@ const Footer = ({ dict }: FooterType) => {
                   <li>
                     <Link href="/contact">{dict?.Contact_us}</Link>
                   </li>
-                  <li>
-                    <Link href="/terms-condition">{dict?.Terms_Policy}</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-sm-2 col-lg-2 col-md-6">
-              <div className="bb-footer-widget">
-                <h3 className="bb-footer-title">{dict?.Genres}</h3>
-                <ul>
-                  <li>
-                    <Link href="/songs?category=New">{dict?.New}</Link>
-                  </li>
-                  <li>
-                    <Link href="/songs?category=Group">{dict?.Group}</Link>
-                  </li>
-                  <li>
-                    <Link href="/songs?category=Duet">{dict?.Duet}</Link>
-                  </li>
-                  <li>
-                    <Link href="/songs?category=Solo">{dict?.Solo}</Link>
-                  </li>
                 </ul>
               </div>
             </div>

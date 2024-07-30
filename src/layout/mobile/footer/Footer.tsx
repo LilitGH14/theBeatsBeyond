@@ -58,10 +58,6 @@ const MobileFooter = ({ dict }: FooterType) => {
               <div className="bb-footer-contact">
                 <ul>
                   <li>
-                    <i className="flaticon-pin"></i>
-                    {dict?.Address}
-                  </li>
-                  <li>
                     <i className="flaticon-mail"></i>
                     <Link href="mailto:info@musiclycontact.com">
                       thebeats@beyond.contact.com
@@ -114,28 +110,6 @@ const MobileFooter = ({ dict }: FooterType) => {
                 </li>
                 <li>
                   <Link href="/contact">{dict?.Contact_us}</Link>
-                </li>
-                <li>
-                  <Link href="/terms-condition">{dict?.Terms_Policy}</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="column">
-              <h3 className="bb-footer-title">{dict?.Genres}</h3>
-              <ul>
-                <li>
-                  <Link href="/songs?category=New">{dict?.New}</Link>
-                </li>
-                <li>
-                  <Link href="/songs?category=Group">{dict?.Group}</Link>
-                </li>
-                <li>
-                  <Link href="/songs?category=Duet">{dict?.Duet}</Link>
-                </li>
-                <li>
-                  <Link href="/songs?category=Solo">{dict?.Solo}</Link>
                 </li>
               </ul>
             </div>

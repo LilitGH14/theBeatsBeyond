@@ -70,7 +70,7 @@ const Header = ({ dict }: HeaderType) => {
                     </div>
                     <div className="bb-header__right">
                       <Language />
-                      {user && (
+                      {!user && (
                         <div className="bb-header__auth-btns">
                           <Link href="/login" className="signin">
                             {dict?.Header?.Sign_in}
@@ -80,7 +80,7 @@ const Header = ({ dict }: HeaderType) => {
                           </Link>
                         </div>
                       )}
-                      {!user && (
+                      {user && (
                         <>
                           <div className="bb-header__action-inner">
                             <div className="bb-header__user-acount">

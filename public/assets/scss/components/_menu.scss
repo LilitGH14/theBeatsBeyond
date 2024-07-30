@@ -289,7 +289,7 @@
     padding: 0 20px;
     height: 40px;
     line-height: 40px;
-    color: white;
+    color: $textColorPrimary;
 
     &:hover {
       border: 1px solid rgb(103, 73, 134);
@@ -323,5 +323,8 @@
     border-radius: 12px;
     width: auto;
     padding: 5px 17px;
+    z-index: 99999;
+    color: $textColorPrimary;
+    cursor: pointer;
   }
 }
