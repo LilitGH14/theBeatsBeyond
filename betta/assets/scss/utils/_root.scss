@@ -1,0 +1,21 @@
+@use "typography" as *;
+
+:root {
+  @each $ff, $shades in $font-family {
+    @each $shade, $value in $shades {
+      --bd-#{$ff}-#{$shade}: #{$value};
+    }
+  }
+
+  @each $fs, $shades in $font-scale {
+    @each $shade, $value in $shades {
+      --bd-#{$fs}-#{$shade}: #{$value};
+    }
+  }
+
+  @each $fs, $shades in $font-size {
+    @each $shade, $value in $shades {
+      --bd-#{$fs}-#{$shade}: #{$value};
+    }
+  }
+}

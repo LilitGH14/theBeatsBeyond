@@ -1,0 +1,343 @@
+@use "../utils" as *;
+
+.bb-songs {
+  &__select {
+    & > div {
+      background: $bgFilter !important;
+    }
+
+    @media #{$sm} {
+      margin-bottom: 12px;
+      padding: 0;
+    }
+  }
+
+  &__bg {
+    height: 288px;
+    padding: 70px 0;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @media #{$sm} {
+      height: 500px;
+      margin-top: 60px;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    color: $primaryTitleColor;
+    font-size: 2rem;
+  }
+
+  &__subtitle {
+    color: $secondaryTitleColor;
+    font-size: 14px;
+  }
+
+  &__content {
+    padding: 30px;
+    z-index: 3;
+    text-align: center;
+
+    form {
+      margin-top: 30px;
+    }
+
+    @media #{$sm} {
+      padding: 20px;
+    }
+  }
+
+  &__search {
+    color: $textColorPrimary;
+    border: 1px solid $borderInput;
+    background: $bgFilter;
+    padding: 10px;
+    border-radius: 16px;
+    position: relative;
+
+    i {
+      position: absolute;
+      left: 15px;
+      top: 17px;
+    }
+
+    input {
+      background-color: transparent;
+      color: $textColorPrimary;
+      border: none;
+      position: absolute;
+      left: 45px;
+      width: 85%;
+    }
+
+    @media #{$sm} {
+      margin-bottom: 12px;
+      min-height: 45px;
+    }
+  }
+
+  &__result-count {
+    color: $textColorSecondary;
+  }
+
+  &__border {
+    border-bottom: 1px solid $borderPrimary !important;
+    margin: 20px 0;
+    padding: 0 0 10px;
+  }
+
+  &__tab {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0 10px;
+    border: none;
+
+    @media #{$sm} {
+      margin-top: 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    background: $bgPrimary;
+    border: 1px solid $borderPrimary;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    position: relative;
+    gap:20px;
+
+    &-img {
+      width: 100%;
+      border-radius: 4px;
+      z-index: 1;
+
+      img {
+        width: 100%;
+        min-height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        height: 155px;
+
+        @media #{$sm} {
+          position: relative;
+          height: inherit;
+          width: inherit;
+          border-radius: 16px;
+        }
+      }
+
+      @media #{$sm} {
+        &::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          inset-inline-start: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0.8;
+          z-index: 2;
+          background: #181818a8;
+        }
+      }
+    }
+
+    &:hover {
+      border: 1px solid $bgDarkHover;
+    }
+
+    &-content {
+      &-title {
+        font-size: 18px;
+        color: $textColorPrimary;
+        margin-bottom: 20px;
+      }
+
+      &-subtitle {
+        font-size: 14px;
+        color: $textColorPrimary;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      &-rating {
+        position: absolute;
+        color: $textColorPrimary;
+      }
+
+      @media #{$sm} {
+        position: absolute;
+        padding: 20px;
+        text-align: center;
+        z-index: 3;
+      }
+    }
+
+    @media #{$sm} {
+      padding: 0;
+      flex-direction: column;
+    }
+
+    &-details {
+      padding: 30px 0;
+
+      &-title {
+        margin-bottom: 20px;
+        color: $textColorSecondary;
+      }
+
+      .nav-tabs {
+        border: none;
+      }
+
+      @media #{$sm} {
+        margin-top: 60px;
+      }
+    }
+
+    &-lyrics {
+      color: $textColorPrimary;
+      padding: 20px 0;
+
+      input {
+        min-height: 40px;
+        width: 360px;
+        padding: 0 10px;
+        margin: 0 0 5px;
+        border-radius: 4px;
+      }
+
+      &-content {
+        & > div {
+          margin-bottom: 20px;
+        }
+      }
+
+      .btns-wrapper {
+        .translation-btn {
+          font-weight: 500;
+          font-size: 16px;
+          border-radius: 30px;
+          display: inline-block;
+          padding: 0 12px;
+          height: 40px;
+          line-height: 40px;
+          border: 1px solid rgb(156, 110, 206);
+          color: white;
+          margin-right: 20px;
+        }
+
+        .generate-btn {
+          font-weight: 500;
+          font-size: 16px;
+          border-radius: 30px;
+          display: inline-block;
+          padding: 0 12px;
+          height: 40px;
+          line-height: 40px;
+          border: 1px solid rgb(156, 110, 206);
+          color: white;
+          background: linear-gradient(
+            142.4deg,
+            rgb(195, 101, 218) 5%,
+            rgb(156, 110, 206) 28.2%,
+            rgb(111, 119, 216) 62.5%,
+            rgb(93, 97, 161) 89.1%
+          );
+        }
+      }
+    }
+  }
+
+  &__info {
+    background-color: $songDetailsBg;
+    border-radius: 4px;
+    
+    &-title {
+      padding: 25px 30px;
+      line-height: 1;
+      margin-bottom: 0;
+      color: $textColorSecondary;
+
+      @media #{$sm} {
+        padding: 25px 20px;
+      }
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      border-top: 1px solid $borderPrimary;
+      align-items: center;
+      padding: 25px 30px;
+
+      @media #{$sm} {
+        padding: 20px 20px;
+        grid-template-columns: 40% 60%;
+      }
+
+      h6 {
+        font-size: 16px;
+        color: $textColorSecondary;
+        font-weight: 600;
+      }
+
+      p,
+      span {
+        margin-bottom: 0;
+        color: $textColorPrimary;
+      }
+
+      .bb-social {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .new-song {
+    width: 350px;
+
+    textarea {
+      min-height: 100px !important;
+    }
+  }
+
+  &__audio {
+    .jp-gui {
+      width: 100%;
+    }
+
+    .jp-playlist {
+      width: 100%;
+    }
+
+    .jp-playlist ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px 30px;
+      margin-bottom: 30px;
+
+      @media #{$md} {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media #{$sm,$sm} {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .audio_player {
+      border-radius: 8px;
+    }
+  }
+
+  @media #{$sm} {
+  }
+}
