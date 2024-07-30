@@ -1,0 +1,29 @@
+{
+  "ResponseCode": 200,
+  "ResponseData": [
+    {
+      "id": 1,
+      "icon": "WorkFutureIconOne",
+      "title": "How_it_works_feature1_title",
+      "description": "How_it_works_feature1_description"
+    },
+    {
+      "id": 2,
+      "icon": "WorkFutureSvgIconTwo",
+      "title": "How_it_works_feature2_title",
+      "description": "How_it_works_feature2_description"
+    },
+    {
+      "id": 3,
+      "icon": "WorkFutureSvgIconThree",
+      "title": "How_it_works_feature3_title",
+      "description": "How_it_works_feature3_description"
+    },
+    {
+      "id": 4,
+      "icon": "WorkFutureSvgIconFour",
+      "title": "How_it_works_feature4_title",
+      "description": "How_it_works_feature4_description"
+    }
+  ]
+}

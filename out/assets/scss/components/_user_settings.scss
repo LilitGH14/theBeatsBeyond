@@ -1,0 +1,166 @@
+@use "../utils" as *;
+
+.user-settings {
+  padding: 0 20px !important;
+
+  .bb-modal-header {
+    position: relative;
+
+    i {
+      border: none !important;
+      position: absolute !important;
+      top: 15px !important;
+      right: 20px !important;
+      font-size: 25px !important;
+      color: $textColorPrimary;
+    }
+
+    h3 {
+      color: $textColorPrimary;
+    }
+
+    @media #{$sm} {
+      top: 0 !important;
+      right: 0 !important;
+    }
+  }
+
+  .bb-modal-content {
+    height: 600px;
+    width: 1200px;
+    margin: calc((100vh - 600px) / 2) auto;
+    background: $accountContentBg;
+    border-radius: 4px;
+
+    .tabs_nav_boxed {
+      border: none !important;
+      padding: 0 10px !important;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        padding: 0 !important;
+        color: $textColorPrimary;
+
+        .active {
+          color: $accountTabActiveColor;
+        }
+
+        span {
+          margin-left: 10px;
+        }
+      }
+
+      button {
+        padding: 5px 0 !important;
+      }
+
+      @media #{$sm} {
+        flex-direction: column;
+      }
+    }
+
+    .tab-content {
+      margin-top: 20px;
+      color: $textColorPrimary;
+    }
+
+    @media #{$sm} {
+      width: 90%;
+      position: absolute;
+      top: 0;
+      height: calc(100% - 100px);
+      margin: 80px 0;
+    }
+  }
+
+  .payment-form-wrapper {
+    width: 450px;
+
+    .payment_methods-wrapper {
+      img {
+        border-radius: 8px;
+      }
+    }
+
+    .date {
+      flex-direction: row !important;
+      justify-content: space-between;
+
+      input {
+        width: 130px;
+
+        &:nth-child(2) {
+          margin: 0 10px;
+        }
+
+        @media #{$sm} {
+          width: unset;
+
+          &:nth-child(2) {
+            margin: 20px 0;
+          }
+        }
+      }
+
+      @media #{$sm} {
+        flex-direction: column !important;
+      }
+    }
+
+    .bb-input-box {
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        color: $textColorPrimary;
+        margin-bottom: 10px;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        background: #1b1b1b;
+        border: 1px solid $borderInput;
+        border-radius: 16px;
+        height: 65px;
+        color: $textColorPrimary;
+        padding: 0 12px;
+        @include transition(0.3s);
+        resize: none;
+
+        @media #{$sm} {
+          padding: 0 20px;
+        }
+
+        &:focus {
+          border: 1px solid $borderFocused;
+        }
+      }
+
+      textarea {
+        resize: none;
+        outline: 0;
+        padding: 20px 12px;
+        min-height: 175px;
+        border-radius: 16px;
+
+        @media #{$sm} {
+          padding: 20px 20px;
+        }
+
+        &:focus {
+          border: 1px solid $borderFocused;
+        }
+      }
+    }
+
+    @media #{$sm} {
+      width: unset;
+    }
+  }
+}
