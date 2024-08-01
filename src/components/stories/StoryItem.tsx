@@ -1,4 +1,4 @@
-import { imageLoader } from "@/hooks/ImageLoader";
+import { imageLoader } from "../../hooks/ImageLoader";
 import Link from "next/link";
 import Image from "next/image";
 import blogBgImage from "../../../public/assets/img/blog/story.jpg";

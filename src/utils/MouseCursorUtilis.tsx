@@ -25,28 +25,25 @@ const UseMousePointer: React.FC = () => {
     };
   }, []);
 
-  return (
-    <>
-      {cursorPosition && (
-        <>
-          <div
-            className="mouseCursor cursor-outer"
-            style={{
-              transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-              visibility: "visible",
-            }}
-          ></div>
-          <div
-            className="mouseCursor cursor-inner"
-            style={{
-              transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-              visibility: "visible",
-            }}
-          ></div>
-        </>
-      )}
-    </>
-  );
+  if (cursorPosition) {
+    return (
+      <>
+        <div
+          className="mouseCursor cursor-outer"
+          style={{
+            transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+          }}
+        ></div>
+        <div
+          className="mouseCursor cursor-inner"
+          style={{
+            transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+          }}
+        ></div>
+      </>
+    );
+  }
+  return null;
 };
 
 export default UseMousePointer;

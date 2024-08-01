@@ -1,5 +1,5 @@
-import HttpClient from "@/services/HttpClient";
-import { ResponseGeneralType } from "@/types/types";
+import HttpClient from "../services/HttpClient";
+import { ResponseGeneralType } from "../types/types";
 
 export const loginUser: (user: any) => Promise<ResponseGeneralType> = async (
   user

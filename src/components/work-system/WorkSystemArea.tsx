@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { WORFEATURES } from "@/constants/constants";
+import { WORFEATURES } from "../../constants/constants";
 
 type WorkSystemAreaProps = { dict: { [key: string]: string } | null };
 const WorkSystemArea = ({ dict }: WorkSystemAreaProps) => {

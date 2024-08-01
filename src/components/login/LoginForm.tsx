@@ -4,8 +4,8 @@ import Link from "next/link";
 import React from "react";
 import ErrorMsg from "../common/ErrorMsg";
 import { toast } from "react-toastify";
-import { loginUser } from "@/services/auth";
-import { login_schema } from "@/utils/validation-schema";
+import { loginUser } from "../../services/auth";
+import { login_schema } from "../../utils/validation-schema";
 
 type authFormProps = {
   dict: { [key: string]: string } | null;
@@ -34,6 +34,7 @@ const LoginForm = ({ dict }: authFormProps) => {
         <div className="bb-auth__input-box col-12">
           <input
             id="name"
+            data-testid="email"
             type="text"
             name="email"
             value={values.email}
@@ -47,6 +48,7 @@ const LoginForm = ({ dict }: authFormProps) => {
         <div className="bb-auth__input-box col-12">
           <input
             id="pass"
+            data-testid="password"
             name="password"
             value={values.password}
             onBlur={handleBlur}
@@ -58,14 +60,16 @@ const LoginForm = ({ dict }: authFormProps) => {
           {touched.password && <ErrorMsg error={errors.password} />}
         </div>
         <div className="bb-auth__input-box col-12">
-          <button className="bb-auth__btn w-100" type="submit">
+          <button className="bb-auth__btn w-100" type="submit" data-testid="button">
             {dict?.Login}
           </button>
         </div>
         <div className="bb-auth__input-box col-12">
           <p className="bb-auth__link">
             {dict?.Dont_have_account}
-            <Link href="/signup" className="bb-auth__link-a">{dict?.Register_Now}</Link>
+            <Link href="/signup" className="bb-auth__link-a">
+              {dict?.Register_Now}
+            </Link>
           </p>
         </div>
       </div>

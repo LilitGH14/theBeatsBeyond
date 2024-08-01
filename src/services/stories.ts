@@ -1,9 +1,8 @@
-import HttpClient from "@/services/HttpClient";
-import { ResponseGeneralType, StoryType } from "@/types/types";
+import HttpClient from "../services/HttpClient";
+import { ResponseGeneralType, StoryType } from "../types/types";
 
-export const fetchStoriesData: () => Promise<ResponseGeneralType> =
-  async () => {
-    const response: ResponseGeneralType = await HttpClient.get(
+export const fetchStoriesData: () =>any = () => {
+    const response: ResponseGeneralType = HttpClient.get(
       `/assets/mock/stories_data.json`
     );
     return response;

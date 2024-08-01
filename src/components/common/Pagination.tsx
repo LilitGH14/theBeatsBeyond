@@ -30,7 +30,7 @@ const Pagination = ({
     <div className="basic-pagination d-flex justify-content-center">
       <ul>
         {currentPageArr.map((count: number) => (
-          <li key={count + "story"}>
+          <li key={count + "story"} data-testid="pagination-item">
             <button onClick={() => changeCurrentPage(count)}>
               <span className={currentPage === count ? "current" : ""}>
                 {count}

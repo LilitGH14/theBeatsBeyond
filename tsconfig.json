@@ -37,8 +37,8 @@
     "src/data/featureData.ts",
     "src/hooks/ratings-hooks.js",
     "src/app/shop-left-02-column",
-    "out/types/**/*.ts"
-  ],
+    "betta/types/**/*.ts"
+, "src/components/common/common.test.jsx"  ],
   "exclude": [
     "node_modules"
   ]
