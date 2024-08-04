@@ -27,11 +27,9 @@ const StoryForm = ({ dict }: StoryFormProps) => {
       title: "",
       description: "",
       tags: [],
-      ageDuringActions: new Date(),
       singers: [],
       writers: [],
     },
-    validationSchema: login_schema,
     onSubmit: (values, { resetForm }) => {
       addStory(values).then((res) => {
         if (res.ResponseCode === 200) {
@@ -45,7 +43,7 @@ const StoryForm = ({ dict }: StoryFormProps) => {
   const removeSinger = (index: number) => {
     setFieldValue(
       "singers",
-      values.writers.filter((_, i) => i !== index)
+      values.singers.filter((_, i) => i !== index)
     );
   };
 

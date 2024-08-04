@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const headers = {
   "content-type": "application/json",
@@ -10,6 +10,7 @@ export const instance = axios.create({});
 const onFulfilled = (response: any): any => response?.data;
 
 const token = "";
+const BASE_URL = "http://localhost:3331";
 
 const setHeaders = (needToken: boolean): void => {
   if (token && needToken) {
@@ -22,7 +23,9 @@ const setHeaders = (needToken: boolean): void => {
 export const HttpClient = {
   get: async (url: string, needToken = true, config?: any) => {
     setHeaders(needToken);
-    return await instance.get(url, { ...config, ...headers }).then(onFulfilled);
+    return await instance
+      .get(BASE_URL + url, { ...config, ...headers })
+      .then(onFulfilled);
   },
   post: async (
     url: string,
@@ -31,7 +34,9 @@ export const HttpClient = {
     config?: any
   ): Promise<any> => {
     setHeaders(needToken);
-    return await instance.post(url, data, { ...config }).then(onFulfilled);
+    return await instance
+      .post(BASE_URL + url, data, { ...config })
+      .then(onFulfilled);
   },
   patch: async (
     url: string,
@@ -40,7 +45,9 @@ export const HttpClient = {
     needToken = true
   ): Promise<any> => {
     setHeaders(needToken);
-    return await instance.patch(url, data, { ...config }).then(onFulfilled);
+    return await instance
+      .patch(BASE_URL + url, data, { ...config })
+      .then(onFulfilled);
   },
 };
 
