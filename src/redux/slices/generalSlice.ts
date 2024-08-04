@@ -6,7 +6,7 @@ interface GeneralState {
   selectedLang: string;
 }
 
-const initialState: GeneralState = {
+export const initialState: GeneralState = {
   dictionary: null,
   selectedLang: "en",
 };

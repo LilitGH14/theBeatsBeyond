@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { imageLoader } from "@/hooks/ImageLoader";
-import { LangItem } from "@/types/types";
+import { imageLoader } from "../../hooks/ImageLoader";
+import { LangItem } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedLanguage } from "@/redux/slices/generalSlice";
-import { Languages } from "@/constants/constants";
+import { setSelectedLanguage } from "../../redux/slices/generalSlice";
+import { Languages } from "../../constants/constants";
 
 const Language = () => {
   const dispatch = useDispatch();
@@ -40,6 +40,8 @@ const Language = () => {
           priority
           src={selectedLang?.src}
           alt={dict?.flag}
+          width="100"
+           height="100"
         />
         {dict?.[selectedLang?.name]}
       </div>
@@ -49,6 +51,7 @@ const Language = () => {
             <li
               key={"flag" + lang.id}
               onClick={() => toggleDropdown(lang)}
+              data-testid="toggle"
               className="lang_item_wrapper"
             >
               <Image
@@ -56,6 +59,8 @@ const Language = () => {
                 priority
                 src={lang?.src}
                 alt={dict?.flag}
+                 width="100"
+                 height="100"
               />
               {dict?.[lang.name]}
             </li>

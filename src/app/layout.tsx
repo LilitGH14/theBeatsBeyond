@@ -1,6 +1,6 @@
 import "./globals.css";
 import "../style/index.scss";
-import AppProvider from "@/contextApi/AppProvider";
+import AppProvider from "@/layout/mobile/AppProvider";
 import ReduxProvider from "@/redux/provider";
 import { ToastContainer } from "react-toastify";
 import UseMousePointer from "@/utils/MouseCursorUtilis";
