@@ -3,30 +3,22 @@ import HttpClient from "./HttpClient";
 
 export const fetchSongsByCategory: (
   category: string
-) => Promise<ResponseGeneralType> = async () => {
+) => Promise<ResponseGeneralType> = async (category) => {
   const response: ResponseGeneralType = await HttpClient.get(
-    `/assets/mock/categories-data.json`
+    `/songs/category/${category}`
   );
   return response;
 };
 
-export const fetchSongsData: (
-  statusParam: string
-) => Promise<ResponseGeneralType> = async (statusParam = "All") => {
-  const response: ResponseGeneralType = await HttpClient.get(
-    `/assets/mock/songs.json`,
-    false,
-    { status: statusParam }
-  );
+export const fetchSongsData: () => Promise<ResponseGeneralType> = async () => {
+  const response: ResponseGeneralType = await HttpClient.get(`/songs`);
   return response;
 };
 
 export const fetchSongDataById: (
   id: number
 ) => Promise<ResponseGeneralType> = async (id: number) => {
-  const response: ResponseGeneralType = await HttpClient.get(
-    `/assets/mock/song_1.json`
-  );
+  const response: ResponseGeneralType = await HttpClient.get(`/songs/${id}`);
   return response;
 };
 

@@ -76,7 +76,7 @@ const SongsMainArea = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    fetchSongsData("All").then((res) => {
+    fetchSongsData().then((res) => {
       if (res.ResponseCode == 200) {
         setSongs(res.ResponseData);
       }

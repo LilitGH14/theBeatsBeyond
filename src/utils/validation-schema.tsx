@@ -10,17 +10,16 @@ export const contact_schema = Yup.object().shape({
 });
 
 export const register_schema = Yup.object().shape({
-  name: Yup.string().required().label("Username"),
-  email: Yup.string().required().email().label("Email"),
-  phoneNum: Yup.string().required().min(11).label("Phone Number"),
-  password: Yup.string().required().min(6).label("Password"),
-  confirmPass: Yup.string()
+  role: Yup.string().required(),
+  username: Yup.string().required(),
+  email: Yup.string().required().email(),
+  password: Yup.string().required().min(6).max(11),
+  confirmPassword: Yup.string()
     .required()
     .oneOf(
       [Yup.ref("password"), undefined as unknown as string],
       "Passwords must match"
-    )
-    .label("Confirm Password"),
+    ),
 });
 
 export const login_schema = Yup.object().shape({

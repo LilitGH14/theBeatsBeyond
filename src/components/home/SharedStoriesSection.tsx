@@ -22,7 +22,7 @@ const SharedStoriesSection = ({ dict }: SharedStoriesSectionProps) => {
   }, [currentPage]);
 
   useEffect(() => {
-    fetchSongsData("shared").then((res) => {
+    fetchSongsData().then((res) => {
       if (res.ResponseCode == 200) {
         setSharedStories(res.ResponseData);
       }

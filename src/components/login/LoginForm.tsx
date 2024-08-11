@@ -6,11 +6,15 @@ import ErrorMsg from "../common/ErrorMsg";
 import { toast } from "react-toastify";
 import { loginUser } from "@/services/auth";
 import { login_schema } from "@/utils/validation-schema";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/slices/authSlice";
 
 type authFormProps = {
   dict: { [key: string]: string } | null;
 };
 const LoginForm = ({ dict }: authFormProps) => {
+  const dispatch = useDispatch();
+
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -22,6 +26,8 @@ const LoginForm = ({ dict }: authFormProps) => {
         loginUser(values).then((res) => {
           if (res.ResponseCode === 200) {
             toast.success(dict?.login_successfully);
+            dispatch(setUser(res.ResponseData));
+            window.location.href = "/";
             resetForm();
           }
         });
@@ -65,7 +71,9 @@ const LoginForm = ({ dict }: authFormProps) => {
         <div className="bb-auth__input-box col-12">
           <p className="bb-auth__link">
             {dict?.Dont_have_account}
-            <Link href="/signup" className="bb-auth__link-a">{dict?.Register_Now}</Link>
+            <Link href="/signup" className="bb-auth__link-a">
+              {dict?.Register_Now}
+            </Link>
           </p>
         </div>
       </div>

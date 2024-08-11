@@ -15,6 +15,7 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
     useFormik({
       initialValues: {
         role: "",
+        username: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -51,6 +52,18 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
         </div>
         <div className="bb-auth__input-box col-12">
           <input
+            type="text"
+            placeholder={dict?.Username}
+            name="username"
+            value={values.username}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            required
+          />
+          {touched.username && <ErrorMsg error={errors.username} />}
+        </div>
+        <div className="bb-auth__input-box col-12">
+          <input
             type="email"
             placeholder={dict?.Email}
             name="email"
@@ -77,7 +90,7 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
           <input
             type="password"
             placeholder={dict?.Confirm_password}
-            name="confirmPass"
+            name="confirmPassword"
             value={values.confirmPassword}
             onBlur={handleBlur}
             onChange={handleChange}

@@ -15,8 +15,8 @@
     "Sign_in": "Sign in",
     "Sign_up": "Sign up",
     "Contact_us": "Contact us",
-    "User_Settings":"User Settings",
-    "Logout":"Logout"
+    "User_Settings": "User Settings",
+    "Logout": "Logout"
   },
   "Footer": {
     "logo_img": "Logo",
@@ -109,7 +109,8 @@
     "Signup_title": "Sign up",
     "Create_account": " Create Account",
     "Have_account": "Already have an account?",
-    "Login": "Log in"
+    "Login": "Log in",
+    "Username": "Username"
   },
   "HomePage": {
     "Remix_song_btn": "Remix a song",
