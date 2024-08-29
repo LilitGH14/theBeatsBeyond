@@ -58,10 +58,6 @@ const MobileFooter = ({ dict }: FooterType) => {
               <div className="bb-footer-contact">
                 <ul>
                   <li>
-                    <i className="flaticon-pin"></i>
-                    {dict?.Address}
-                  </li>
-                  <li>
                     <i className="flaticon-mail"></i>
                     <Link href="mailto:info@musiclycontact.com">
                       thebeats@beyond.contact.com

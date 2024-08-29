@@ -60,7 +60,7 @@ const PrivacyTermsAndRefund = ({
             </ul>
           </div>
           <div className="col-xl-9 col-lg-8">
-            <div className="tab-content mb-60">
+            <div className="tab-content">
               <div
                 className={`tab-pane fade show ${
                   policyActive ? policyActive : ""

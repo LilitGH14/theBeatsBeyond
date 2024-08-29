@@ -154,7 +154,7 @@
     "Comment_Title": "Add a title",
     "Comment_Description": "Add a description",
     "Need_login": "You need to login",
-    "Latest_songs":"Latest songs"
+    "Latest_songs": "Latest songs"
   },
   "StoriesPage": {
     "Stories_title": "Stories",
@@ -173,8 +173,8 @@
     "Story_description_label": "Story",
     "Story_tags_label": "Tags(mood)",
     "Story_is_added_successfully": "Story is added successfully",
-    "Story_writer_label":"Press Enter To Add a Writer",
-    "Story_singer_label":"Press Enter To Add a Singer",
+    "Story_writer_label": "Press Enter To Add a Writer",
+    "Story_singer_label": "Press Enter To Add a Singer",
     "afraid": "afraid",
     "scared": "scared",
     "angry": "angry",
@@ -229,23 +229,9 @@
     "Privacy_Policy": "Privacy & Policy",
     "Terms_Conditions": "Terms & Conditions",
     "Privacy_Policy_title1": "Privacy Policy Agreement",
-    "Privacy_Policy_description1": "Companies or websites that handle customer information are required by law and third parties to publish their Privacy Policies on their business websites. If you own a website, web app, mobile app or that collects or processes user data, you most certainly will have to post a Privacy Policy on your website.",
-    "Privacy_Policy_title2": "Here are some of the main reasons",
-    "Privacy_Policy_description2": {
-      "list_item1": "Performance and Speed",
-      "list_item1_dec": ": React and Next.js utilize server-side rendering (SSR) and client-side rendering (CSR) techniques, leading to faster load times and improved user experiences. This is crucial for a film production  website that often includes media-rich content like videos and images.",
-      "list_item2": "SEO Benefits",
-      "list_item2_dec": ": Client-side rendering (CSR) techniques, leading to faster load times and improved user experiences. This is crucial for a film production  website that often includes media-rich content like videos and images."
-    },
     "Terms_title1": "Terms & Conditions",
-    "Terms_description1": "Companies or websites that handle customer information are required by law and third parties to publish their Privacy Policies on their business websites. If you own a website, web app, mobile app or that collects or processes user data, you most certainly will have to post a Privacy Policy on your website.",
-    "Terms_title2": "Here are some of the main reasons",
-    "Terms_description2": {
-      "list_item1": "Performance and Speed",
-      "list_item1_dec": ": React and Next.js utilize server-side rendering (SSR) and client-side rendering (CSR) techniques, leading to faster load times and improved user experiences. This is crucial for a film production  website that often includes media-rich content like videos and images.",
-      "list_item2": "SEO Benefits",
-      "list_item2_dec": ": Client-side rendering (CSR) techniques, leading to faster load times and improved user experiences. This is crucial for a film production  website that often includes media-rich content like videos and images."
-    }
+    "TermsAndConditionsContent":"<p><strong>Introduction:</strong> Welcome to The Beats Beyond. By accessing or using our website and services, you agree to comply with and be bound by these Terms and Conditions.</p>\n<p><strong>Use of Our Services:</strong> You must be at least 13 years old to use our services.</p>\n<p><strong>Account Responsibility:</strong> You are responsible for maintaining the confidentiality of your account information and for all activities under your account.</p>\n<p><strong>Content:</strong> You retain ownership of the stories and content you submit. By submitting content, you grant us a non-exclusive, royalty-free license to use, display, and distribute it on our platform.</p>\n<p><strong>Prohibited Content:</strong> You must not submit content that is illegal, harmful, or infringes on any third-party rights.</p>\n<p><strong>Intellectual Property:</strong> All intellectual property rights in our website and services, including content and design, are owned by us or our licensors. You may not use our intellectual property without our prior written consent.</p>\n<p><strong>Fees:</strong> Certain features may require payment. All payments are processed securely.</p>\n<p><strong>Refunds:</strong> Refunds are subject to our refund policy, which may be updated from time to time.</p>\n<p><strong>Termination:</strong> We may suspend or terminate your access to our services if you violate these Terms and Conditions or engage in harmful activities.</p>\n<p><strong>Limitation of Liability:</strong> To the fullest extent permitted by law, we are not liable for any indirect, incidental, or consequential damages arising from your use of our website or services.</p>\n<p><strong>Changes to Terms:</strong> We may update these Terms and Conditions periodically. Your continued use of our services after changes means you accept the updated terms.</p>\n<p><strong>Contact Us:</strong> For any questions about these Terms and Conditions, please contact us at <a href=\"mailto:thebeats@beyond.contact.com\">thebeats@beyond.contact.com</a>.</p>",
+    "PrivacyPolicyContent": "<p>The Beats Beyond values your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information on our website and services.</p>\n<h5>Information We Collect</h5>\n<ul>\n  <li><strong>Personal Information:</strong> Includes your name, email address, and payment details for account management and transactions.</li>\n  <li><strong>Usage Data:</strong> Collects details like IP addresses and browser types to improve our services.</li>\n</ul>\n<h5>How We Use Your Information</h5>\n<ul>\n  <li><strong>To Provide Services:</strong> Manage accounts, process payments, and support users.</li>\n  <li><strong>To Improve Our Website:</strong> Analyze usage data to enhance functionality.</li>\n  <li><strong>To Communicate:</strong> Send updates or promotional content. You can opt-out anytime.</li>\n  <li><strong>Cookies:</strong> We do not use cookies.</li>\n</ul>\n<h5>Children’s Privacy</h5>\n<ul>\n  <li><strong>Under 13:</strong> We do not knowingly collect data from children under 13. Contact us if this occurs.</li>\n</ul>\n<p>For questions, email us at <a href=\"mailto:thebeats@beyond.contact.com\">thebeats@beyond.contact.com</a>.</p>"
   },
   "HowItWorksPage": {
     "How_it_works": "How it works",
