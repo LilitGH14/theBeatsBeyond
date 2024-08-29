@@ -3,6 +3,8 @@ import React from "react";
 import WorkBgImg from "../../../public/assets/img/bg/main-bg.jpg";
 import { TWorkFuture } from "@/types/types";
 import { WORFEATURES } from "@/constants/constants";
+import Image from "next/image";
+import { imageLoader } from "@/hooks/ImageLoader";
 
 type WorkAreaProps = {
   dict: { [key: string]: string } | null;
@@ -37,7 +39,15 @@ const WorkArea = ({ dict }: WorkAreaProps) => {
                         key={item.id}
                       >
                         <div className="bb-work__features-item-icon">
-                          <span>{i + 1}</span>
+                          <div className="icon-wrapper">
+                          <Image
+                            loader={imageLoader}
+                            placeholder="blur"
+                            loading="lazy"
+                            src={item.icon}
+                            alt={dict?.CategoryImageAlt as string}
+                          />
+                          </div>
                         </div>
                         <div className="bb-work__features-content">
                           <h4>{dict?.[item.title]}</h4>

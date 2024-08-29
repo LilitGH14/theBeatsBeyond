@@ -11,7 +11,10 @@ export const fetchChooseUsData: () => Promise<ResponseGeneralType> =
 
 export const fetchFaqData: () => Promise<ResponseGeneralType> = async () => {
   const response: ResponseGeneralType = await HttpClient.get(
-    `/assets/mock/faq.json`
+    `/assets/mock/faq.json`,
+    false,
+    null,
+    false
   );
   return response;
 };

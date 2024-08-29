@@ -1,16 +1,20 @@
 "use client";
 import { register_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
-import React from "react";
-import { toast } from "react-toastify";
+import React, { useState } from "react";
 import ErrorMsg from "../common/ErrorMsg";
 import Link from "next/link";
 import { registerUser } from "@/services/auth";
+import { useRouter } from "next/navigation";
 
 type SignUpFormProps = {
   dict: { [key: string]: string } | null;
 };
 const RegisterForm = ({ dict }: SignUpFormProps) => {
+  const router = useRouter();
+
+  const [generalError, setGeneralError] = useState<string>("");
+
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -21,13 +25,16 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
         confirmPassword: "",
       },
       validationSchema: register_schema,
-      onSubmit: (values, { resetForm }) => {
-        registerUser(values).then((res) => {
-          if (res.ResponseCode === 200) {
-            toast.success(dict?.Register_successfully);
-            resetForm();
-          }
-        });
+      onSubmit: (values) => {
+        registerUser(values)
+          .then((res) => {
+            if (res.ResponseCode === 200) {
+              router.push("/login");
+            }
+          })
+          .catch((err) => {
+            setGeneralError(err.response?.data?.ErrorMessage);
+          });
       },
     });
 
@@ -99,6 +106,9 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
           {touched.confirmPassword && (
             <ErrorMsg error={errors.confirmPassword} />
           )}
+        </div>
+        <div className="bb-auth__input-box col-12">
+          {!!generalError && <ErrorMsg error={generalError} />}
         </div>
         <div className="bb-auth__input-box col-12">
           <button className="bb-auth__btn w-100" type="submit">

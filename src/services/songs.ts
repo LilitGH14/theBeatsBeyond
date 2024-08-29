@@ -1,14 +1,13 @@
 import { Filters, ResponseGeneralType } from "@/types/types";
 import HttpClient from "./HttpClient";
 
-export const fetchSongsByCategory: (
-  category: string
-) => Promise<ResponseGeneralType> = async (category) => {
-  const response: ResponseGeneralType = await HttpClient.get(
-    `/songs/category/${category}`
-  );
-  return response;
-};
+export const fetchSongsByCategory: () => Promise<ResponseGeneralType> =
+  async () => {
+    const response: ResponseGeneralType = await HttpClient.post(
+      `/songs/byCategory`
+    );
+    return response;
+  };
 
 export const fetchSongsData: () => Promise<ResponseGeneralType> = async () => {
   const response: ResponseGeneralType = await HttpClient.get(`/songs`);
@@ -23,9 +22,12 @@ export const fetchSongDataById: (
 };
 
 export const fetchFilteredSongData: (
-  filters: Filters
-) => Promise<ResponseGeneralType> = async (filters) => {
-  const response: ResponseGeneralType = await HttpClient.post(``, filters);
+  filter: Filters
+) => Promise<ResponseGeneralType> = async (filter) => {
+  const response: ResponseGeneralType = await HttpClient.post(
+    `/songs/filter`,
+    filter
+  );
   return response;
 };
 

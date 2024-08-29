@@ -16,6 +16,7 @@ body {
   color: var($bgPrimary);
   line-height: 26px;
   background: $bgPrimary;
+  user-select: none;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -386,40 +387,13 @@ a {
               @include transform(rotate(180deg));
             }
           }
+        }
 
-          &::before {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            color: $textColorPrimary;
-            inset-block-start: 0;
-            inset-inline-start: 0;
-            background: linear-gradient(
-              142.4deg,
-              rgb(195, 101, 218) 5%,
-              rgb(156, 110, 206) 28.2%,
-              rgb(111, 119, 216) 62.5%,
-              rgb(93, 97, 161) 89.1%
-            );
-            border-color: transparent;
-            color: var(--clr-common-white);
-            content: "";
-            position: absolute;
-            opacity: 0;
-            visibility: hidden;
-            @include transition(0.3s);
-            z-index: -1;
-          }
-
-          &:hover {
-            &::before {
-              opacity: 1;
-              visibility: visible;
-            }
-
-            color: $textColorPrimary;
-            font-weight: 600;
-          }
+        &:hover {
+          color: $textColorPrimary;
+          font-weight: 600;
+          color: rgba(195, 101, 218);
+          opacity: 0.5;
         }
 
         .current {
@@ -713,4 +687,12 @@ a:visited.ui-button,
   .container-sm {
     max-width: 540px;
   }
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  margin: 0px;
+  position: absolute;
+  right: 16px;
 }

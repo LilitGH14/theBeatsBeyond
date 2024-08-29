@@ -30,6 +30,8 @@
   &__title {
     color: $primaryTitleColor;
     font-size: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   &__subtitle {
@@ -107,9 +109,15 @@
     background: $bgPrimary;
     border: 1px solid $borderPrimary;
     border-radius: 15px;
-    padding: 25px;
+    padding: 12px;
     margin-bottom: 20px;
     position: relative;
+    flex-direction: column;
+
+    &:hover {
+      box-shadow: 1px 0px 16px -1px #9c6ece;
+      border-radius: 15px;
+    }
 
     &-img {
       width: 100%;
@@ -118,10 +126,9 @@
 
       img {
         width: 100%;
-        min-height: 200px;
         object-fit: cover;
         border-radius: 4px;
-        height: 155px;
+        height: 100px;
 
         @media #{$sm} {
           position: relative;
@@ -152,25 +159,37 @@
 
     &-content {
       &-title {
-        font-size: 18px;
-        color: $textColorPrimary;
-        margin-bottom: 20px;
+        font-size: 14px;
+        color: white;
+        margin: 12px 0 0;
       }
 
       &-subtitle {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 14px;
         color: $textColorPrimary;
-        margin-bottom: 20px;
+        margin: 5px 0;
         text-align: left;
       }
 
       &-rating {
-        position: absolute;
         color: $textColorPrimary;
+        font-size: 12px;
+
+        .flaticon-star {
+          color: #a76cd1;
+        }
+
+        .unrate {
+          color: grey;
+        }
+
+        i {
+          margin: 3px;
+        }
       }
 
       @media #{$sm} {
-        position: absolute;
         padding: 20px;
         text-align: center;
         z-index: 3;

@@ -5,7 +5,8 @@ import Link from "next/link";
 import React from "react";
 import Pagination from "../common/Pagination";
 import { SongType } from "@/types/types";
-import eventImg1 from "../../../public/assets/img/blog/story.jpg";
+import eventImg1 from "../../../public/assets/img/categories/song-card-bg.jpeg";
+import Ratting from "../common/Rating";
 
 type SongsListingAreaProps = {
   dict: { [key: string]: string };
@@ -50,7 +51,7 @@ const SongsListingArea = ({
           <div className="row">
             {songs.slice(...slicedIndex).map((item) => (
               <div
-                className="col-xl-6"
+                className="col-lg-2"
                 key={item.id}
                 role="button"
                 onClick={() => openDetails(item.id)}
@@ -76,9 +77,7 @@ const SongsListingArea = ({
                         </p>
                       </div>
                       <div className="bb-songs__item-content-rating">
-                        <span>
-                          {dict.Votes}: {item.rating}
-                        </span>
+                        <Ratting averageRating={item.rate} />
                       </div>
                     </div>
                   </div>

@@ -43,7 +43,7 @@ const Footer = ({ dict }: FooterType) => {
                     <li>
                       <div className="bb-footer-social-inner">
                         <Link
-                          href="https://www.linkedin.com/"
+                          href="https://www.instagram.com/thebeatsbeyond/"
                           title="Instagram"
                           target="_blank"
                         >
@@ -67,7 +67,7 @@ const Footer = ({ dict }: FooterType) => {
                     </li>
                     <li>
                       <i className="flaticon-mail"></i>
-                      <Link href="mailto:info@musiclycontact.com">
+                      <Link href="mailto:info@musiclycontact.com" className="mail">
                         thebeats@beyond.contact.com
                       </Link>
                     </li>

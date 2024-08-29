@@ -1,26 +1,33 @@
 @use "../utils" as *;
 
 .bb-page-header {
+  &__area {
+    margin: 2em 10em 0;
+    border-radius: 30px;
+  }
+
   &__inner {
-    height: 288px;
-    padding: 70px 0;
     z-index: 1;
     position: relative;
     display: flex;
     align-items: center;
-    
+    background-color: transparent;
+
     @media #{$sm} {
-      height: 200px;
       margin-top: 60px;
       padding: 0;
     }
   }
 
   &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     &-title {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      padding: 5px;
       color: $primaryTextColor;
-      margin-bottom: 30px;
 
       @media #{$sm} {
         font-size: 1.4rem;
@@ -33,30 +40,46 @@
       line-height: 1.8;
       color: $primaryTitleColor;
       text-transform: capitalize;
-      margin-bottom: 65px;
     }
 
-    &-btn {
-      color: $textColorPrimary;
-      background: linear-gradient(
-        142.4deg,
-        rgb(195, 101, 218) 5%,
-        rgb(156, 110, 206) 28.2%,
-        rgb(111, 119, 216) 62.5%,
-        rgb(93, 97, 161) 89.1%
-      );
-      font-weight: 500;
-      font-size: 16px;
-      border-radius: 30px;
-      display: inline-block;
-      padding: 0 20px;
-      height: 40px;
-      line-height: 40px;
-      width: fit-content;
-      margin: 20px 0;
+    &_inner {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
 
-      &:hover {
-        opacity: 0.7;
+    .links {
+      color: white;
+      display: flex;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin: 0 12px;
+      }
+
+      a {
+        cursor: pointer;
+
+        &:hover {
+          color: $textHoverPrimary;
+          opacity: 0.7;
+        }
+
+        &:last-child {
+          color: $textHoverPrimary;
+        }
+      }
+
+      img {
+        height: 25px;
+        width: 25px;
+        filter: invert(1);
+        margin-bottom: 2px;
+        cursor: pointer;
       }
     }
   }

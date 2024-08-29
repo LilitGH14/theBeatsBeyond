@@ -9,7 +9,7 @@ export const instance = axios.create({});
 
 const onFulfilled = (response: any): any => response?.data;
 
-const token = "";
+const token = localStorage?.getItem('token');
 const BASE_URL = "http://localhost:3331";
 
 const setHeaders = (needToken: boolean): void => {
@@ -21,10 +21,10 @@ const setHeaders = (needToken: boolean): void => {
 };
 
 export const HttpClient = {
-  get: async (url: string, needToken = true, config?: any) => {
+  get: async (url: string, needToken = true, config?: any, useBase:boolean=true) => {
     setHeaders(needToken);
     return await instance
-      .get(BASE_URL + url, { ...config, ...headers })
+      .get((useBase ? BASE_URL : "") + url, { ...config, ...headers })
       .then(onFulfilled);
   },
   post: async (
@@ -34,6 +34,7 @@ export const HttpClient = {
     config?: any
   ): Promise<any> => {
     setHeaders(needToken);
+    
     return await instance
       .post(BASE_URL + url, data, { ...config })
       .then(onFulfilled);

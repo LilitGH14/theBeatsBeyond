@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import NiceSelect from "../common/NiceSelect";
-import bg from "../../../public/assets/img/bg/main-bg.jpg";
+import bg from "../../../public/assets/img/bg/category-bg.jpg";
 import { Filters } from "@/types/types";
+import { bannerFormSelect } from "@/constants/constants";
 
 type SongsAboutAreaProps = {
   filters: Filters;
@@ -30,7 +31,7 @@ const SongsAboutArea = ({
             <div className="bb-songs__select col-lg-4">
               <NiceSelect
                 value={filters.generatedSong}
-                options={[]}
+                options={bannerFormSelect}
                 onChange={(ev) => selectHandler(ev, "generatedSong")}
                 placeholder={dict.Select_song_type_placeholder}
                 name="generatedSong"
@@ -39,7 +40,7 @@ const SongsAboutArea = ({
             <div className="bb-songs__select col-lg-4">
               <NiceSelect
                 value={filters.originalSong}
-                options={[]}
+                options={bannerFormSelect}
                 onChange={(ev) => selectHandler(ev, "originalSong")}
                 name="originalSong"
                 placeholder={dict.Select_original_song_type_placeholder}

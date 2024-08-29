@@ -7,6 +7,27 @@ export const fetchStoriesData: () => Promise<ResponseGeneralType> =
     return response;
   };
 
+export const fetchStoriesDataByLimit: (
+  limit: number
+) => Promise<ResponseGeneralType> = async (limit = 6) => {
+  const response: ResponseGeneralType = await HttpClient.post("/stories", {
+    limit,
+  });
+  return response;
+};
+
+export const fetchStoriesByCategoryData: (
+  category: "Latest" | "Popular" | "Inspired"
+) => Promise<ResponseGeneralType> = async (
+  category: "Latest" | "Popular" | "Inspired"
+) => {
+  const response: ResponseGeneralType = await HttpClient.post(
+    "/stories/byCategory",
+    { category }
+  );
+  return response;
+};
+
 export const fetchStoryById: (
   id: number
 ) => Promise<ResponseGeneralType> = async (id: number) => {
@@ -17,6 +38,9 @@ export const fetchStoryById: (
 export const addStory: (
   story: Partial<StoryType>
 ) => Promise<ResponseGeneralType> = async (story) => {
-  const response: ResponseGeneralType = await HttpClient.post(`/stories/create`, story);
+  const response: ResponseGeneralType = await HttpClient.post(
+    `/stories/create`,
+    story
+  );
   return response;
 };

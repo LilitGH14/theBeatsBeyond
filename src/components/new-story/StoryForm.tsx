@@ -1,8 +1,6 @@
 "use client";
-import { login_schema } from "@/utils/validation-schema";
 import { useFormik } from "formik";
 import React from "react";
-import ErrorMsg from "../common/ErrorMsg";
 import { TAG_OPTIONS } from "@/constants/constants";
 import { addStory } from "@/services/stories";
 import { toast } from "react-toastify";
@@ -66,11 +64,23 @@ const StoryForm = ({ dict }: StoryFormProps) => {
     <form onSubmit={handleSubmit} className="row">
       <div className="col-lg-4">
         <div className="bb-input-box">
+          <label>{dict?.Story_title_label}</label>
+          <input
+            type="text"
+            name="title"
+            value={values.title}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            placeholder={dict?.Story_title}
+          />
+        </div>
+        <div className="bb-input-box">
           <label>{dict?.Writers_placeholder}</label>
           <ReactTags
             tags={values.writers}
             name="writers"
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
+            placeholder={dict?.Story_writer_label}
             handleDelete={removeWriter}
             handleAddition={addWriters}
             inputFieldPosition="inline"
@@ -84,10 +94,12 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             tags={values.singers}
             name="singers"
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
+            placeholder={dict?.Story_singer_label}
             handleDelete={removeSinger}
             handleAddition={addSingers}
             inputFieldPosition="inline"
             editable
+            inline
           />
         </div>
         <div className="bb-input-box">
@@ -103,20 +115,6 @@ const StoryForm = ({ dict }: StoryFormProps) => {
       </div>
       <div className="col-lg-8">
         <div className="bb-input-box">
-          <label>{dict?.Story_title_label}</label>
-          <input
-            id="title"
-            type="text"
-            name="title"
-            value={values.title}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder={dict?.Story_title}
-            required
-          />
-          {touched.title && <ErrorMsg error={errors.title} />}
-        </div>
-        <div className="bb-input-box">
           <label>{dict?.Story_description_label}</label>
           <textarea
             id="description"
@@ -127,7 +125,6 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             placeholder={dict?.Story_description}
             required
           />
-          {touched.description && <ErrorMsg error={errors.description} />}
         </div>
         <div className="bb-input-box">
           <button className="unfill__btn d-block" type="submit">

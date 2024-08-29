@@ -3,26 +3,22 @@ import { imageLoader } from "@/hooks/ImageLoader";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Ratting from "../common/Rating";
-import { SongType } from "@/types/types";
-import { fetchSongsData } from "@/services/songs";
-import image1 from "../../../public/assets/img/popular/popular-01.png";
-import Pagination from "../common/Pagination";
+import { StoryType } from "@/types/types";
+import image1 from "../../../public/assets/img/categories/story.jpg";
+import { fetchStoriesDataByLimit } from "@/services/stories";
 
-type SharedStoriesSectionProps = {
+type SharedSongsSectionProps = {
   dict: { [key: string]: string } | null;
 };
-const SharedStoriesSection = ({ dict }: SharedStoriesSectionProps) => {
-  const [sharedStories, setSharedStories] = useState<SongType[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [slicedIndex, setSlicedIndex] = useState<number[]>([]);
+const SharedStoriesSection = ({ dict }: SharedSongsSectionProps) => {
+  const [sharedStories, setSharedStories] = useState<StoryType[]>([]);
+
+  const openSongDetails = (id: number) => {
+    localStorage.setItem("song_id", id.toString());
+  };
 
   useEffect(() => {
-    setSlicedIndex([(currentPage - 1) * 6, currentPage * 6]);
-  }, [currentPage]);
-
-  useEffect(() => {
-    fetchSongsData().then((res) => {
+    fetchStoriesDataByLimit(6).then((res) => {
       if (res.ResponseCode == 200) {
         setSharedStories(res.ResponseData);
       }
@@ -35,7 +31,7 @@ const SharedStoriesSection = ({ dict }: SharedStoriesSectionProps) => {
         <div className="col-xl-7">
           <div className="section__title-wrapper text-center bd-title-anim">
             <span className="section__subtitle">
-              {dict?.Inspired_story_titile}
+              {dict?.Inspired_story_title}
             </span>
             <h2 className="section__title">
               {dict?.Inspired_story_description}
@@ -45,10 +41,14 @@ const SharedStoriesSection = ({ dict }: SharedStoriesSectionProps) => {
       </div>
       <div className="bb-shared__content-space bdFadeUp">
         <div className="bb-shared__content-space-inner">
-          {sharedStories.slice(...slicedIndex).map((item) => (
+          {sharedStories.map((item: StoryType) => (
             <div className="bb-shared__content-space-inner-item" key={item.id}>
-              <Link href={`/song-details/${item.id}`} className="row">
-                <div className="thumb">
+              <Link href={`/story-details`} className="row">
+                <div
+                  className="thumb"
+                  role="button"
+                  onClick={() => openSongDetails(item.id)}
+                >
                   <Image
                     loader={imageLoader}
                     placeholder="blur"
@@ -57,23 +57,15 @@ const SharedStoriesSection = ({ dict }: SharedStoriesSectionProps) => {
                     src={image1}
                     alt={dict?.AvatarAlt ?? ""}
                   />
-                </div>
-                <div className="content">
-                  <h5 className="content-title">{item.songGivenName}</h5>
-                  <span className="content-subtitle">{item.category}</span>
-                  <div className="content-bottom">
-                    <Ratting averageRating={item.rating} />
+                  <div className="content">
+                    <h5 className="content-title">{item.title}</h5>
+                    <span className="content-subtitle"> {item.username}</span>
                   </div>
                 </div>
               </Link>
             </div>
           ))}
         </div>
-        <Pagination
-          pagesCount={Math.ceil(sharedStories.length / 5)}
-          currentPage={currentPage}
-          changeCurrentPage={setCurrentPage}
-        />
       </div>
     </section>
   );

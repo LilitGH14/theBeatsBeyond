@@ -12,27 +12,30 @@
   overflow: hidden;
 
   &-content {
+    background-color: #212529;
+    color: white !important;
     margin: calc((100vh - 435px) / 2) auto;
     padding: 20px;
-    width: fit-content;
+    width: inherit;
+    border-radius: 16px;
+  }
 
-    .modal-header {
-      margin: 0 0 20px;
-      border: none;
-      padding: 10px 0;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 
-      i {
-        border: none;
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        font-size: 20px;
-      }
-
-      h3 {
-        position: absolute;
-        color: white !important;
-      }
+    i {
+      color: white !important;
+      font-size: 20px;
     }
+
+    h4 {
+      color: white !important;
+    }
+  }
+
+  &.sm .bb-modal-content{
+    width: 450px;
   }
 }

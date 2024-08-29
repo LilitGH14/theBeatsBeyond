@@ -34,7 +34,7 @@ const MobileFooter = ({ dict }: FooterType) => {
           <div className="col-12 bb-footer-social">
             <div>
               <Link
-                href="https://www.linkedin.com/"
+                href="https://www.instagram.com/thebeatsbeyond/"
                 title="Instagram"
                 target="_blank"
               >

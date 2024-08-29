@@ -278,6 +278,9 @@
   .languagepicker {
     display: none;
     margin-top: 4px;
+    position: relative;
+    z-index: 9999999999999999;
+    color: white;
   }
 
   .selected_lang_item_wrapper {
@@ -290,6 +293,7 @@
     height: 40px;
     line-height: 40px;
     color: white;
+    cursor: pointer;
 
     &:hover {
       border: 1px solid rgb(103, 73, 134);
@@ -299,6 +303,7 @@
   .lang_item_wrapper,
   .selected_lang_item_wrapper {
     list-style-type: none;
+    cursor: pointer;
 
     img {
       color: transparent;

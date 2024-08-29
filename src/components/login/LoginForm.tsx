@@ -1,19 +1,22 @@
 "use client";
 import { useFormik } from "formik";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import ErrorMsg from "../common/ErrorMsg";
-import { toast } from "react-toastify";
 import { loginUser } from "@/services/auth";
 import { login_schema } from "@/utils/validation-schema";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/authSlice";
+import { useRouter } from "next/navigation";
 
 type authFormProps = {
   dict: { [key: string]: string } | null;
 };
 const LoginForm = ({ dict }: authFormProps) => {
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  const [generalError, setGeneralError] = useState<string>("");
 
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =
     useFormik({
@@ -22,15 +25,19 @@ const LoginForm = ({ dict }: authFormProps) => {
         password: "",
       },
       validationSchema: login_schema,
-      onSubmit: (values, { resetForm }) => {
-        loginUser(values).then((res) => {
-          if (res.ResponseCode === 200) {
-            toast.success(dict?.login_successfully);
-            dispatch(setUser(res.ResponseData));
-            window.location.href = "/";
-            resetForm();
-          }
-        });
+      onSubmit: (values) => {
+        loginUser(values)
+          .then((res) => {
+            if (res.ResponseCode === 200) {
+              router.push("/");
+
+              dispatch(setUser(res.ResponseData));
+              localStorage.setItem("token", res.ResponseData.token);
+            }
+          })
+          .catch((err) => {
+            setGeneralError(err.response?.data?.ErrorMessage);
+          });
       },
     });
 
@@ -48,7 +55,7 @@ const LoginForm = ({ dict }: authFormProps) => {
             placeholder={dict?.Email}
             required
           />
-          {touched.email && <ErrorMsg error={errors.email} />}
+          {touched.email && errors.email && <ErrorMsg error={errors.email} />}
         </div>
         <div className="bb-auth__input-box col-12">
           <input
@@ -61,12 +68,17 @@ const LoginForm = ({ dict }: authFormProps) => {
             placeholder={dict?.Password}
             required
           />
-          {touched.password && <ErrorMsg error={errors.password} />}
+          {touched.password && errors.password && (
+            <ErrorMsg error={errors.password} />
+          )}
         </div>
         <div className="bb-auth__input-box col-12">
           <button className="bb-auth__btn w-100" type="submit">
             {dict?.Login}
           </button>
+        </div>
+        <div className="bb-auth__input-box col-12">
+          {!!generalError && <ErrorMsg error={generalError} />}
         </div>
         <div className="bb-auth__input-box col-12">
           <p className="bb-auth__link">

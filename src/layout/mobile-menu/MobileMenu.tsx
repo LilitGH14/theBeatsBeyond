@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { imageLoader } from "@/hooks/ImageLoader";
-import avatar from "../../../public/assets/img/avatars/suga.jpg";
 import { useSelector } from "react-redux";
 import Modal from "@/components/common/Modal";
 import UserSettings from "@/components/common/UsetSettings";
@@ -40,14 +39,14 @@ const MobileMenu = ({ open, dict, toggle }: MobileMenuProps) => {
     <>
       <ul className={`bb-mobile-menu__area ${open ? "open" : ""}`}>
         <li className="bb-mobile-menu__user-info">
-          <Image
+          {/* <Image
             loader={imageLoader}
             priority
             width={143}
             height={45}
             src={avatar}
             alt={dict?.Header?.Avatar_alt as string}
-          />
+          /> */}
           <span>John Doe</span>
         </li>
         <hr />

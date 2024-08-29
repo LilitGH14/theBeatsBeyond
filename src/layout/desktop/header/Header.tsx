@@ -5,25 +5,35 @@ import Image from "next/image";
 import { imageLoader } from "@/hooks/ImageLoader";
 import headerLogo from "../../../../public/assets/img/logo/big-logo.png";
 import Language from "@/components/common/Language";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "@/components/common/Modal";
 import UserSettings from "@/components/common/UsetSettings";
 import menu_data from "@/constants/menu-data";
+import { setUser } from "@/redux/slices/authSlice";
 
 type HeaderType = {
   dict: { [key: string]: { [key: string]: string } } | null;
 };
 const Header = ({ dict }: HeaderType) => {
+  const dispatch = useDispatch();
+
   const user = useSelector((store: any) => store.auth.user);
 
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [activeRoute, setActiveRoute] = useState<string>("home");
 
   const closeModal = () => {
     setIsOpen(false);
   };
 
+  const selectActiveRoute = (route: string) => {
+    setActiveRoute(route);
+    localStorage.setItem("selectedRoute", route);
+  };
+
   const logout = () => {
-    //logout
+    localStorage.clear();
+    dispatch(setUser(null));
   };
 
   return (
@@ -37,7 +47,10 @@ const Header = ({ dict }: HeaderType) => {
                   <div className="bb-header__main">
                     <div className="bb-header__left">
                       <div className="bb-header__logo">
-                        <Link href="/">
+                        <Link
+                          href="/"
+                          onClick={() => selectActiveRoute("home")}
+                        >
                           <Image
                             loader={imageLoader}
                             priority
@@ -56,8 +69,13 @@ const Header = ({ dict }: HeaderType) => {
                               <li
                                 key={menu.id}
                                 className={`${
-                                  menu.active ? "active has-dropdown" : ""
+                                  activeRoute === menu.title.toLowerCase()
+                                    ? "active"
+                                    : ""
                                 }`}
+                                onClick={() =>
+                                  selectActiveRoute(menu.title.toLowerCase())
+                                }
                               >
                                 <Link href={menu.link}>
                                   {dict?.Header?.[menu.title]}
@@ -82,7 +100,10 @@ const Header = ({ dict }: HeaderType) => {
                       )}
                       {user && (
                         <>
-                          <button onClick={logout} className="logout_btn">
+                          <button
+                            onClick={() => logout()}
+                            className="logout_btn"
+                          >
                             <i
                               className="fa fa-sign-out"
                               aria-hidden="true"

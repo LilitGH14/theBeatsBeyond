@@ -16,7 +16,6 @@ const onAlert = (id = defaultId) => {
 };
 
 const success = (message: string, options: any) => {
-    console.log(333)
   alert({ ...options, type: AlertType.Success, message });
 };
 

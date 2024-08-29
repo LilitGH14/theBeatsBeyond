@@ -1,43 +1,32 @@
 "use client";
-import React, { useEffect } from "react";
+import { modalService, ModalSubject } from "@/services/modal";
+import React, { useEffect, useState } from "react";
 
-type ModalProps = {
-  open: boolean;
-  close: () => void;
-  children: JSX.Element[] | JSX.Element;
-  title: string;
-  className?: string;
-};
-const Modal = ({
-  open,
-  close,
-  children,
-  title,
-  className = "",
-}: ModalProps) => {
+const Modal = () => {
+  const [data, setData] = useState<ModalSubject | null>(null);
+
+  const onClose = (): void => {
+    modalService.closeModal();
+    document.body.removeAttribute("style");
+  };
+
   useEffect(() => {
-    open && document.body.setAttribute("style", "overflow:hidden");
+    modalService.modalSubject.subscribe((res) => setData(res as ModalSubject));
+  }, []);
 
-    return () => {
-      document.body.removeAttribute("style");
-    };
-  }, [open]);
+  if (!data) return null;
 
-  if (open) {
-    return (
-      <div className={`bb-modal ${className}`}>
-        <div className="bb-modal-content ms-bg-2">
-          <div className="bb-modal-header">
-            <h3>{title}</h3>
-            <i className="fa fa-times" role="button" onClick={close}></i>
-          </div>
-          {children}
+  return (
+    <div className={`bb-modal ${data?.className}`}>
+      <div className="bb-modal-content ms-bg-2">
+        <div className="bb-modal-header">
+          <h4>{data?.title}</h4>
+          <i className="fa fa-times" role="button" onClick={onClose}></i>
         </div>
+        {data?.children}
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };
 
 export default Modal;

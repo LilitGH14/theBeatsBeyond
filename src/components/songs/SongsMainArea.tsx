@@ -51,11 +51,12 @@ const SongsMainArea = () => {
         field === "generatedSong" ? "originalSong" : "generatedSong"
       );
 
-      setFilters({
-        ...filters,
-        [field]: ev.optionName,
-        [field === "generatedSong" ? "originalSong" : "generatedSong"]: "",
-      });
+      const d = filters;
+      filters[field] = ev.optionName.toLowerCase();
+      filters[field === "generatedSong" ? "originalSong" : "generatedSong"] = "";
+      console.log(d, 123)
+
+      setFilters(d);
 
       fetchFilteredSongData(filters).then((res) => {
         if (res.ResponseCode == 200) {
@@ -88,7 +89,7 @@ const SongsMainArea = () => {
   }, [dictSelector]);
 
   useEffect(() => {
-    setSlicedIndex([(currentPage - 1) * 6, currentPage * 6]);
+    setSlicedIndex([(currentPage - 1) * 12, currentPage * 12]);
   }, [currentPage]);
 
   return (
@@ -100,8 +101,8 @@ const SongsMainArea = () => {
       />
       <SongsListingArea
         dict={dict}
-        resultCount={233}
-        pagesCount={Math.ceil(songs.length / 6)}
+        resultCount={songs.length}
+        pagesCount={Math.ceil(songs.length / 12)}
         songs={songs}
         currentPage={currentPage}
         changeCurrentPage={setCurrentPage}

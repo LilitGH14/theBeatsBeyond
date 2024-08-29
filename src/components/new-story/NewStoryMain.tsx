@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import PageHeader from "../common/PageHeader";
-import EventBg from "../../../public/assets/img/event/event-bg-4.jpg";
 import { useSelector } from "react-redux";
 import StoryForm from "./StoryForm";
 
@@ -18,7 +17,7 @@ const NewStoryMain = () => {
 
   return (
     <main>
-      <PageHeader imageSrc={EventBg.src} title="New_story_title" dict={dict} />
+      <PageHeader title="New_story_title" dict={dict} />
       <section className="bb-story__new-area">
         <div className="container">
           <div className="row">

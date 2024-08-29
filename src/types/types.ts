@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
-import React, { ReactNode } from "react";
+import React from "react";
+
 // context api data type
 export type AppContextType = {
   niceSelectData: string;
@@ -29,7 +30,7 @@ export type TPopularData = {
 //work-future-type
 export type TWorkFuture = {
   id: number;
-  icon: ReactNode;
+  icon: StaticImageData;
   title: string;
   description: string;
 };
@@ -156,6 +157,11 @@ export type DictionaryType = {
 export type ResponseGeneralType = {
   ResponseCode: number;
   ResponseData: any;
+  ErrorMessage: string;
+};
+
+export type ResponseGeneralErrorType = {
+  message: string;
 };
 
 export type ChooseUsDataType = {
@@ -180,7 +186,7 @@ export type StoryType = {
   description: string;
   date: string;
   votedCount: number;
-  category:string;
+  category: string;
 };
 
 export type StoryDetailsType = {
@@ -208,10 +214,10 @@ export type SongType = {
   songName: string;
   username: string;
   category: string;
-  rating: number;
+  rate: number;
   isShared: boolean;
   tags: string[];
-  duration:string;
+  duration: string;
   lyrics: { [key: string]: { [key: string]: string[] } };
 };
 

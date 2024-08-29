@@ -26,6 +26,10 @@ const Pagination = ({
     pagesCount && setPagesArr(pagesCount);
   }, [pagesCount]);
 
+  if (currentPageArr.length === 1) {
+    return null;
+  }
+
   return (
     <div className="basic-pagination d-flex justify-content-center">
       <ul>

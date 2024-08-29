@@ -14,7 +14,8 @@ const MobileHeader = ({ dict, toggle }: HeaderType) => {
   const user = useSelector((store: any) => store.auth.user);
 
   const logout = () => {
-    //logout
+    window.location.href = "/";
+    localStorage.clear();
   };
 
   return (

@@ -1,18 +1,9 @@
 import { Avatar, Category, LangItem, TWorkFuture } from "@/types/types";
 import enFlag from "../../public/assets/img/flags/en.png";
 import koFlag from "../../public/assets/img/flags/ko.png";
-import WorkFutureSvgIconOne from "../../public/assets/img/svg/WorkFutureIconOne";
-import WorkFutureSvgIconTwo from "../../public/assets/img/svg/WorkFutureSvgIconTwo";
-import WorkFutureSvgIconThree from "../../public/assets/img/svg/WorkFutureSvgIconThree";
-import avatar1 from "../../public/assets/img/avatars/hope.jpg";
-import avatar2 from "../../public/assets/img/avatars/jimin.jpg";
-import avatar3 from "../../public/assets/img/avatars/jin.jpg";
-import avatar4 from "../../public/assets/img/avatars/kook.jpg";
-import avatar5 from "../../public/assets/img/avatars/rm.jpg";
-import avatar6 from "../../public/assets/img/avatars/suga.jpg";
-import avatar7 from "../../public/assets/img/avatars/v.jpg";
-import WorkFutureIconOne from "../../public/assets/img/svg/WorkFutureIconOne";
-import WorkFutureSvgIconFour from "../../public/assets/img/svg/WorkFutureSvgIconFour";
+import WorkFutureSvgIconOne from "../../public/assets/img/svg/quill_and_ink.png";
+import WorkFutureSvgIconTwo from "../../public/assets/img/svg/hand-holding-heart.png";
+import WorkFutureSvgIconThree from "../../public/assets/img/svg/3.png";
 
 export const CATEGORIES: Category[] = [
   {
@@ -45,52 +36,21 @@ export const Languages: LangItem[] = [
 export const WORFEATURES: TWorkFuture[] = [
   {
     id: 1,
-    icon: <WorkFutureSvgIconOne />,
+    icon: WorkFutureSvgIconOne,
     title: "How_it_works_feature_1_title",
     description: "How_it_works_feature_1_description",
   },
   {
     id: 2,
-    icon: <WorkFutureSvgIconThree />,
+    icon: WorkFutureSvgIconTwo,
     title: "How_it_works_feature_2_title",
     description: "How_it_works_feature_2_description",
   },
   {
     id: 3,
-    icon: <WorkFutureSvgIconTwo />,
+    icon: WorkFutureSvgIconThree,
     title: "How_it_works_feature_3_title",
     description: "How_it_works_feature_3_description",
-  },
-];
-
-export const AVATARS: Avatar[] = [
-  {
-    id: "avatar1",
-    src: avatar1,
-  },
-  {
-    id: "avatar2",
-    src: avatar2,
-  },
-  {
-    id: "avatar3",
-    src: avatar3,
-  },
-  {
-    id: "avatar4",
-    src: avatar4,
-  },
-  {
-    id: "avatar5",
-    src: avatar5,
-  },
-  {
-    id: "avatar6",
-    src: avatar6,
-  },
-  {
-    id: "avatar7",
-    src: avatar7,
   },
 ];
 

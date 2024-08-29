@@ -88,7 +88,7 @@
 
     &__title {
       color: $textColorPrimary;
-      line-height: 1.2;
+      line-height: 1.7;
       text-transform: capitalize;
       margin-bottom: 40px;
       position: relative;
@@ -210,15 +210,19 @@
   }
 
   .bb-popular {
+    &-active .swiper-wrapper {
+      padding: 12px;
+    }
+
     &__area {
-      margin: 30px 0;
+      margin: 40px 0;
 
       @media #{$sm} {
         padding: 0;
       }
     }
 
-    &_stories {
+    &__stories {
       margin: 30px 0;
     }
 
@@ -237,7 +241,7 @@
         }
 
         .nav-link {
-          border-radius: 30px;
+          border-radius: 12px;
           margin-bottom: 0;
           color: $textColorPrimary;
           border: 1px solid $borderSecondary;
@@ -261,34 +265,64 @@
     }
 
     &__title {
-      color: $textColorPrimary;
+      @include transition(0.3s);
+
+      color: white;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       border-radius: 30px;
       display: inline-block;
-      padding: 12px 20px;
-      @include transition(0.3s);
-      position: absolute;
-      bottom: 0;
-      inset-inline-start: 0;
+      text-align: center;
 
       @media #{$sm} {
         font-size: 12px;
       }
     }
 
+    &__content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-wrap: wrap;
+      padding: 12px 0 0;
+      justify-content: space-between;
+    }
+
     &__thumb {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid transparent;
-      margin: 20px 0;
+      padding: 12px;
+      border: 1px solid $borderFeatureColor;
+      border-radius: 15px;
+      color: white;
+
+      &:hover {
+        box-shadow: 1px 0px 16px -1px #9c6ece;
+        border-radius: 15px;
+        border: 1px solid $bgDarkHover;
+      }
 
       img {
-        transition: all 0.2s ease-in-out;
+        border-radius: 5px;
+      }
 
-        &:hover {
-          @include transform(scale(1.1));
+      @include transition(0.3s);
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+
+        .flaticon-star {
+          color: #a76cd1;
+        }
+
+        .unrate {
+          color: grey;
+        }
+
+        i {
+          margin: 3px;
         }
       }
     }
@@ -329,6 +363,7 @@
     &__features {
       &-inner {
         display: flex;
+        margin-top: 30px;
       }
 
       &-content {
@@ -362,17 +397,20 @@
         &-icon {
           color: $textColorPrimary;
 
-          span {
-            display: inline-flex;
+          .icon-wrapper {
             width: 82px;
             height: 82px;
             border: 1px solid $borderFeatureColor;
+            display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            font-size: 40px;
-            color: $textColorPrimary;
-            font-family: var(--bd-ff-subtitle);
+
+            img {
+              height: auto;
+              width: 40px;
+              filter: invert(1);
+            }
 
             @media #{$sm} {
               width: 60px;
@@ -392,6 +430,10 @@
           }
         }
 
+        &:last-child img {
+          filter: invert(0);
+        }
+
         @media #{$sm} {
           flex-wrap: wrap;
           justify-content: center;
@@ -404,7 +446,7 @@
     &__area {
       position: relative;
       z-index: 11;
-      padding: 70px 0;
+      padding: 40px 0;
 
       @media #{$sm} {
         padding: 30px 0 0;
@@ -416,6 +458,7 @@
       flex-direction: column;
 
       &-inner {
+        margin-top: 20px;
         display: grid;
         grid-template-columns: auto auto auto auto auto auto;
 
@@ -442,54 +485,56 @@
           }
 
           .thumb {
-            width: 70px;
-            height: 70px;
+            .content {
+              margin: 12px 0 0;
+
+              &-title {
+                font-weight: 500;
+                color: $textColorPrimary;
+                font-size: 14px;
+                text-wrap: wrap;
+
+                @include transition(0.3s);
+
+                &:hover {
+                  color: $borderSecondary;
+                }
+              }
+
+              &-subtitle {
+                font-size: 12px;
+                color: $textColorPrimary;
+              }
+
+              &-bottom {
+                display: flex;
+
+                i {
+                  margin-right: 5px;
+                  color: rgb(116 0 144);
+                  font-size: 12px;
+                  margin: 0 2px;
+
+                  &.unrate {
+                    color: #aeaeae;
+                  }
+                }
+              }
+
+              @media #{$sm} {
+                width: 70vw;
+                width: 70svw;
+              }
+            }
 
             img {
-              border-radius: 50%;
+              border-radius: 15px;
             }
           }
 
-          .content {
-            width: 140px;
-
-            &-title {
-              font-weight: 500;
-              color: $textColorPrimary;
-              font-size: 14px;
-              height: 35px;
-
-              @include transition(0.3s);
-
-              &:hover {
-                color: $borderSecondary;
-              }
-            }
-
-            &-subtitle {
-              font-size: 12px;
-              color: $textColorPrimary;
-            }
-
-            &-bottom {
-              display: flex;
-
-              i {
-                margin-right: 5px;
-                color: #c7b91b;
-                font-size: 12px;
-                margin: 0 2px;
-
-                &.unrate {
-                  color: $textColorPrimary;
-                }
-              }
-            }
-
-            @media #{$sm} {
-             width: 70vw;
-             width: 70svw;
-            }
+          &:hover {
+            box-shadow: 1px 0px 16px -1px #9c6ece;
+            border-radius: 12px;
           }
         }
       }

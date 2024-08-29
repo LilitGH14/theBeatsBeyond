@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../common/Pagination";
 import { StoryType } from "@/types/types";
 import PageHeader from "../common/PageHeader";
-import Bg from "../../../public/assets/img/event/event-bg-4.jpg";
 import StoryItem from "./StoryItem";
 import { useSelector } from "react-redux";
 import { fetchStoriesData } from "@/services/stories";
@@ -17,6 +16,11 @@ const StoriesMainArea = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [slicedIndex, setSlicedIndex] = useState<number[]>([]);
   const [dict, setDict] = useState<{ [key: string]: string }>({});
+  
+  const changePage = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     dictSelector && setDict(dictSelector);
@@ -38,7 +42,6 @@ const StoriesMainArea = () => {
     <main>
       <PageHeader
         dict={dict}
-        imageSrc={Bg.src}
         title="Stories_title"
         button={{ link: "/new-story", title: dict["Stories_btn"] }}
       />
@@ -46,7 +49,7 @@ const StoriesMainArea = () => {
         <div className="bb-border2">
           <div className="row">
             {storiesData.slice(...slicedIndex).map((item: StoryType) => (
-              <div className="col-xl-3 col-md-6" key={item.id}>
+              <div className="col-lg-2 col-md-6" key={item.id}>
                 <StoryItem
                   id={item.id}
                   dict={dict}
@@ -61,9 +64,9 @@ const StoriesMainArea = () => {
         <div className="row">
           <div className="col-xl-12">
             <Pagination
-              pagesCount={Math.ceil(storiesData.length / 6)}
+              pagesCount={Math.ceil(storiesData.length / 12)}
               currentPage={currentPage}
-              changeCurrentPage={setCurrentPage}
+              changeCurrentPage={changePage}
             />
           </div>
         </div>

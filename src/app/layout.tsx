@@ -2,9 +2,9 @@ import "./globals.css";
 import "../style/index.scss";
 import AppProvider from "@/contextApi/AppProvider";
 import ReduxProvider from "@/redux/provider";
-import { ToastContainer } from "react-toastify";
 import UseMousePointer from "@/utils/MouseCursorUtilis";
 import Alert from "@/components/common/Alert";
+import Modal from "@/components/common/Modal";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 
 export const metadata = {
   title: "The Beats Beyond",
-  description: "Music inspiration for your idols",
+  description: "Inspiration for your favorite artists",
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -33,19 +33,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <UseMousePointer />
         <ReduxProvider>
           <AppProvider>{children}</AppProvider>
-          <ToastContainer
-            position="top-left"
-            autoClose={1000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
           <Alert />
+          <Modal />
         </ReduxProvider>
       </body>
     </html>
