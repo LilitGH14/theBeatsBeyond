@@ -64,7 +64,7 @@ const SongsListingArea = ({
                         loader={imageLoader}
                         placeholder="blur"
                         loading="lazy"
-                        alt="genres img"
+                        alt="Genres img"
                       />
                     </div>
                     <div className="bb-songs__item-content">

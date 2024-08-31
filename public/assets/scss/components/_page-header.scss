@@ -2,11 +2,13 @@
 
 .bb-page-header {
   &__area {
-    margin: 2em 10em 0;
+    margin: 1em 2em;
     border-radius: 30px;
+    height: 105px;
   }
 
   &__inner {
+    margin: 2em 10em 0;
     z-index: 1;
     position: relative;
     display: flex;

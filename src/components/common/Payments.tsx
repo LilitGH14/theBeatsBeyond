@@ -47,7 +47,7 @@ const Payments = ({ dict }: PaymentsProps) => {
                 width={80}
                 height={45}
                 src={payment}
-                alt={dict?.Payment_default_alt as string}
+                alt={dict?.Payment_default_alt ?? "Payment thumbnail"}
               />
             );
           })}

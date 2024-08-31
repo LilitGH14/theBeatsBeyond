@@ -95,7 +95,10 @@ const PopularArea = ({ dict }: PopularAreaProps) => {
                                 loading="lazy"
                                 style={{ width: "100%", height: "auto" }}
                                 src={storyBgImage}
-                                alt={dict?.CategoryImageAlt as string}
+                                alt={
+                                  dict?.CategoryImageAlt ??
+                                  "Popular Section thumbnail"
+                                }
                               />
                               <div className="bb-popular__content">
                                 <h4 className="bb-popular__title">

@@ -1,25 +1,33 @@
 "use client";
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { TAG_OPTIONS } from "@/constants/constants";
 import { addStory } from "@/services/stories";
-import { toast } from "react-toastify";
 import MultiSelect from "../common/MultiSelect";
 import { WithContext as ReactTags, SEPARATORS } from "react-tag-input";
 import { Tag } from "react-tag-input/types/components/SingleTag";
+import { useRouter } from "next/navigation";
+import { story_schema } from "@/utils/validation-schema";
+import ErrorMsg from "../common/ErrorMsg";
+import { OptionType } from "@/types/types";
 
 type StoryFormProps = {
   dict: { [key: string]: string } | null;
 };
 const StoryForm = ({ dict }: StoryFormProps) => {
+  const router = useRouter();
+
+  const [singerTagErr, setSingerTagErr] = useState<boolean>(false);
+  const [writerTagErr, setWriterTagErr] = useState<boolean>(false);
+
   const {
     handleSubmit,
     handleBlur,
     handleChange,
     setFieldValue,
     values,
-    errors,
     touched,
+    errors,
   } = useFormik({
     initialValues: {
       title: "",
@@ -28,11 +36,13 @@ const StoryForm = ({ dict }: StoryFormProps) => {
       singers: [],
       writers: [],
     },
-    onSubmit: (values, { resetForm }) => {
+    validationSchema: story_schema,
+    onSubmit: (values) => {
+      console.log(values,456);
+
       addStory(values).then((res) => {
         if (res.ResponseCode === 200) {
-          toast.success(dict?.Story_is_added_successfully);
-          resetForm();
+          router.push("/stories");
         }
       });
     },
@@ -53,26 +63,53 @@ const StoryForm = ({ dict }: StoryFormProps) => {
   };
 
   const addWriters = (writer: Tag) => {
+    console.log(writer,45665)
+    if (writer.text.length < 3) {
+      setWriterTagErr(true);
+      return;
+    }
+
     setFieldValue("writers", [...values.writers, writer]);
+    setWriterTagErr(false);
   };
 
   const addSingers = (singer: Tag) => {
+    if (singer.text.length < 3) {
+      setSingerTagErr(true);
+      return;
+    }
+
     setFieldValue("singers", [...values.singers, singer]);
+    setSingerTagErr(false);
+  };
+
+  const addMoodTags = (tags: any) => {
+    setFieldValue(
+      "tags",
+      tags.map((m: string) => {
+        return (TAG_OPTIONS?.find((f) => f.optionName == m) as OptionType).id;
+      })
+    );
   };
 
   return (
     <form onSubmit={handleSubmit} className="row">
       <div className="col-lg-4">
         <div className="bb-input-box">
-          <label>{dict?.Story_title_label}</label>
-          <input
-            type="text"
-            name="title"
-            value={values.title}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder={dict?.Story_title}
-          />
+          <label>
+            {dict?.Story_title_label}
+            <input
+              type="text"
+              name="title"
+              value={values.title}
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder={dict?.Story_title}
+            />
+          </label>
+          <div className="p-relative">
+            {touched.title && errors.title && <ErrorMsg error={errors.title} />}
+          </div>
         </div>
         <div className="bb-input-box">
           <label>{dict?.Writers_placeholder}</label>
@@ -80,7 +117,11 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             tags={values.writers}
             name="writers"
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
-            placeholder={dict?.Story_writer_label}
+            placeholder={
+              writerTagErr
+                ? dict?.Story_tag_error_placeholder
+                : dict?.Story_writer_label
+            }
             handleDelete={removeWriter}
             handleAddition={addWriters}
             inputFieldPosition="inline"
@@ -94,7 +135,11 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             tags={values.singers}
             name="singers"
             separators={[SEPARATORS.ENTER, SEPARATORS.COMMA]}
-            placeholder={dict?.Story_singer_label}
+            placeholder={
+              singerTagErr
+                ? dict?.Story_tag_error_placeholder
+                : dict?.Story_singer_label
+            }
             handleDelete={removeSinger}
             handleAddition={addSingers}
             inputFieldPosition="inline"
@@ -105,10 +150,8 @@ const StoryForm = ({ dict }: StoryFormProps) => {
         <div className="bb-input-box">
           <label>{dict?.Story_tags_label}</label>
           <MultiSelect
-            values={values.tags}
             options={TAG_OPTIONS}
-            onChange={handleChange}
-            name="tags"
+            onChange={addMoodTags}
             dict={dict ?? {}}
           />
         </div>
@@ -123,8 +166,12 @@ const StoryForm = ({ dict }: StoryFormProps) => {
             onBlur={handleBlur}
             onChange={handleChange}
             placeholder={dict?.Story_description}
-            required
           />
+          <div className="p-relative">
+            {touched.description && errors.description && (
+              <ErrorMsg error={errors.description} />
+            )}
+          </div>
         </div>
         <div className="bb-input-box">
           <button className="unfill__btn d-block" type="submit">

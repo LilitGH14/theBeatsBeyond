@@ -57,7 +57,7 @@ const Header = ({ dict }: HeaderType) => {
                             width={143}
                             height={45}
                             src={headerLogo}
-                            alt={dict?.Header?.logo_img as string}
+                            alt={dict?.Header?.logo_img ?? "Logo"}
                           />
                           <span>Betta</span>
                         </Link>

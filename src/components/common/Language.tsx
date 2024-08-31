@@ -55,7 +55,7 @@ const Language = () => {
                 loader={imageLoader}
                 priority
                 src={lang?.src}
-                alt={dict?.flag}
+                alt={dict?.flag ?? "Flag"}
               />
               {dict?.[lang.name]}
             </li>

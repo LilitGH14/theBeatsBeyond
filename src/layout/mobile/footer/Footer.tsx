@@ -26,7 +26,7 @@ const MobileFooter = ({ dict }: FooterType) => {
                 loader={imageLoader}
                 placeholder="blur"
                 loading="lazy"
-                alt={dict?.logo_img as string}
+                alt={dict?.logo_img ?? "Logo"}
                 className="logo"
               />
             </Link>
@@ -40,16 +40,20 @@ const MobileFooter = ({ dict }: FooterType) => {
               >
                 {dict?.IN}
               </Link>
-              <Link href="https://twitter.com/" title="Twitter" target="_blank">
+              <Link
+                href="https://x.com/Fanamin292475"
+                title="Twitter"
+                target="_blank"
+              >
                 {dict?.TW}
               </Link>
-              <Link
+              {/* <Link
                 href="https://www.facebook.com/"
                 title="Facebook"
                 target="_blank"
               >
                 {dict?.FB}
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="col-12">
@@ -59,8 +63,8 @@ const MobileFooter = ({ dict }: FooterType) => {
                 <ul>
                   <li>
                     <i className="flaticon-mail"></i>
-                    <Link href="mailto:info@musiclycontact.com">
-                      thebeats@beyond.contact.com
+                    <Link href="mailto:support@thebeatsbeyond.com">
+                      support@thebeatsbeyond.com
                     </Link>
                   </li>
                 </ul>
@@ -77,7 +81,7 @@ const MobileFooter = ({ dict }: FooterType) => {
                     loader={imageLoader}
                     placeholder="blur"
                     loading="lazy"
-                    alt={dict?.flag_img as string}
+                    alt={dict?.flag_img ?? "Korean flag"}
                   />
                 </div>
                 <div className="flag">
@@ -86,7 +90,7 @@ const MobileFooter = ({ dict }: FooterType) => {
                     loader={imageLoader}
                     placeholder="blur"
                     loading="lazy"
-                    alt={dict?.flag_img as string}
+                    alt={dict?.flag_img ?? "US flag"}
                   />
                 </div>
                 <div className="flag">
@@ -95,7 +99,7 @@ const MobileFooter = ({ dict }: FooterType) => {
                     loader={imageLoader}
                     placeholder="blur"
                     loading="lazy"
-                    alt={dict?.flag_img as string}
+                    alt={dict?.flag_img ?? "Canadian flag"}
                   />
                 </div>
               </div>

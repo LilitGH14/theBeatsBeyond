@@ -24,7 +24,7 @@ const StoryItem = ({ dict, id, date, username, title }: StoryItemProps) => {
             loader={imageLoader}
             placeholder="blur"
             loading="lazy"
-            alt={dict?.Story_img_alt}
+            alt={dict?.Story_img_alt ?? "Story thumbnail"}
           />
           <span className="bb-story__date">
             {new Date(date).toDateString()}

@@ -40,13 +40,15 @@ const WorkArea = ({ dict }: WorkAreaProps) => {
                       >
                         <div className="bb-work__features-item-icon">
                           <div className="icon-wrapper">
-                          <Image
-                            loader={imageLoader}
-                            placeholder="blur"
-                            loading="lazy"
-                            src={item.icon}
-                            alt={dict?.CategoryImageAlt as string}
-                          />
+                            <Image
+                              loader={imageLoader}
+                              placeholder="blur"
+                              loading="lazy"
+                              src={item.icon}
+                              alt={
+                                dict?.CategoryImageAlt ?? "Feature thumbnail"
+                              }
+                            />
                           </div>
                         </div>
                         <div className="bb-work__features-content">

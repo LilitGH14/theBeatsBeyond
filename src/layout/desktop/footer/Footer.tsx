@@ -27,7 +27,7 @@ const Footer = ({ dict }: FooterType) => {
                       placeholder="blur"
                       loading="lazy"
                       style={{ width: "100%", height: "auto" }}
-                      alt={dict?.logo_img as string}
+                      alt={dict?.logo_img ?? "Logo"}
                     />
                   </Link>
                 </div>
@@ -50,26 +50,24 @@ const Footer = ({ dict }: FooterType) => {
                           {dict?.IN}
                         </Link>
                         <Link
-                          href="https://twitter.com/"
+                          href="https://x.com/Fanamin292475"
                           title="Twitter"
                           target="_blank"
                         >
                           {dict?.TW}
                         </Link>
-                        <Link
+                        {/* <Link
                           href="https://www.facebook.com/"
                           title="Facebook"
                           target="_blank"
                         >
                           {dict?.FB}
-                        </Link>
+                        </Link> */}
                       </div>
                     </li>
                     <li>
                       <i className="flaticon-mail"></i>
-                      <Link href="mailto:info@musiclycontact.com" className="mail">
-                        thebeats@beyond.contact.com
-                      </Link>
+                      support@thebeatsbeyond.com
                     </li>
                   </ul>
                 </div>

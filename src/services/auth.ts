@@ -17,8 +17,7 @@ export const registerUser: (user: any) => Promise<ResponseGeneralType> = async (
   const request: ResponseGeneralType = await HttpClient.post(`/auth/register`, {
     role: user.role,
     email: user.email,
-    password: user.password,
-    username: user.username,
+    password: user.password
   });
 
   return request;

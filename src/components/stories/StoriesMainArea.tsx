@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { fetchStoriesData } from "@/services/stories";
 
 const StoriesMainArea = () => {
+  const user = useSelector((store: any) => store.auth.user);
   const dictSelector = useSelector(
     (store: any) => store.general.dictionary?.StoriesPage
   );
@@ -16,7 +17,7 @@ const StoriesMainArea = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [slicedIndex, setSlicedIndex] = useState<number[]>([]);
   const [dict, setDict] = useState<{ [key: string]: string }>({});
-  
+
   const changePage = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,6 +45,7 @@ const StoriesMainArea = () => {
         dict={dict}
         title="Stories_title"
         button={{ link: "/new-story", title: dict["Stories_btn"] }}
+        user={user}
       />
       <section className="bb-story__area container">
         <div className="bb-border2">

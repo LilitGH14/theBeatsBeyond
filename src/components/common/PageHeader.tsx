@@ -1,15 +1,26 @@
 import Link from "next/link";
 import React from "react";
+import bg from "../../../public/assets/img/bg/main-bg.jpg";
 
 type PageHeaderProps = {
   dict: any;
   title: string;
   description?: string;
   button?: { link: string; title: string };
+  user?: any;
 };
-const PageHeader = ({ dict, title, description, button }: PageHeaderProps) => {
+const PageHeader = ({
+  dict,
+  title,
+  description,
+  button,
+  user,
+}: PageHeaderProps) => {
   return (
-    <section className="bb-page-header__area fix">
+    <section
+      className="bb-page-header__area fix"
+      style={{ backgroundImage: `url(${bg.src})` }}
+    >
       <div className="bb-page-header__inner include__bg">
         <div className="container">
           <div className="row justify-content-center">
@@ -23,7 +34,7 @@ const PageHeader = ({ dict, title, description, button }: PageHeaderProps) => {
                     {dict?.[description] ?? description}
                   </p>
                 )}
-                {button && (
+                {button && user && (
                   <Link
                     href={button.link}
                     className="bb-page-header__content-btn primary-filled-btn"

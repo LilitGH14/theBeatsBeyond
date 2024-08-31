@@ -55,7 +55,7 @@ const SharedStoriesSection = ({ dict }: SharedSongsSectionProps) => {
                     loading="lazy"
                     style={{ width: "100%", height: "auto" }}
                     src={image1}
-                    alt={dict?.AvatarAlt ?? ""}
+                    alt={dict?.AvatarAlt ?? "Avatar thumbnail"}
                   />
                   <div className="content">
                     <h5 className="content-title">{item.title}</h5>

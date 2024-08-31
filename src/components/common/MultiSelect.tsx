@@ -5,39 +5,37 @@ import React, {
   useRef,
   KeyboardEvent,
   MouseEvent,
-  useEffect,
 } from "react";
 import { useClickAway } from "react-use";
 
 type MultiSelectProps = {
   options: OptionType[];
-  onChange: (item: number[], name: string) => void;
-  name: string;
-  values: number[];
+  onChange: (e: any) => void;
   dict: { [key: string]: string };
 };
 
 const MultiSelect: React.FC<MultiSelectProps> = ({
   options,
   onChange,
-  name,
-  values,
   dict,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [open, setOpen] = useState<boolean>(false);
-  const [availableOptions, setAvailableOptions] = useState<OptionType[]>([]);
-  const [currents, setCurrents] = useState<number[]>([]);
+  const [availableOptions, setAvailableOptions] =
+    useState<OptionType[]>(options);
+  const [currents, setCurrents] = useState<string[]>([]);
 
   const onClose = useCallback(() => {
     setOpen(false);
   }, []);
 
-  const currentHandler = (item: OptionType) => {
-    setCurrents([...currents, item.id]);
+  const currentHandler = (item: OptionType, e: any) => {
+    const selectedOptions = [...currents, item.optionName];
+
+    setCurrents(selectedOptions);
     setAvailableOptions(availableOptions.filter((f) => f.id !== item.id));
-    onChange(currents, name);
+    onChange(selectedOptions);
     onClose();
   };
 
@@ -45,28 +43,17 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
     setOpen((prev) => !prev);
   };
 
-  const remove = (item: number) => {
-    setCurrents(
-      options.filter((f: OptionType) => f.id !== item).map((f) => f.id)
-    );
-    setAvailableOptions([
-      ...availableOptions,
-      options.find((f: OptionType) => f.id === item) as OptionType,
-    ]);
+  const remove = (item: string) => {
+    const updatedCurrents = currents.filter((option) => option !== item);
+    setCurrents(updatedCurrents);
+
+    const removedItem = options.find((option) => option.optionName === item);
+    if (removedItem) setAvailableOptions([...availableOptions, removedItem]);
   };
 
   const stopPropagation = (e: MouseEvent | KeyboardEvent) => {
     e.stopPropagation();
   };
-
-  useEffect(() => {
-    setCurrents(
-      options.filter((f: OptionType) => values?.includes(f.id)).map((m) => m.id)
-    );
-    setAvailableOptions(
-      options.filter((f: OptionType) => !values?.includes(f.id))
-    );
-  }, [options, values]);
 
   useClickAway(ref, onClose);
 
@@ -78,13 +65,13 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
       onClick={handleClick}
       ref={ref}
     >
-      {currents.map((option: number) => {
+      {currents.map((option: string) => {
         return (
           <span className="mood-tag" key={option + "tag"}>
             {
               dict?.[
-                options.find((f: OptionType) => f.id == option)?.optionName ??
-                  ""
+                options.find((f: OptionType) => f.optionName == option)
+                  ?.optionName ?? ""
               ]
             }
             <i
@@ -102,7 +89,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
             data-value={item.id}
             className="option"
             role="menuitem"
-            onClick={() => currentHandler(item)}
+            onClick={(e) => currentHandler(item, e)}
           >
             {item.optionName}
           </li>

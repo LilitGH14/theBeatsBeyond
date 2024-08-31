@@ -21,7 +21,7 @@ const StoryDetailsSidebar = ({ story, dict }: StoryDetailsSidebarProps) => {
         <div className="bb-story__details-inner">
           <h4 className="bb-story__details-title">{dict.Category}</h4>
           <span className="bb-story__details-stext">
-            {story?.tags.map((m: string) => m)}
+            {story?.tags?.map((m: string) => m)}
           </span>
         </div>
       </div>

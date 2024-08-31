@@ -33,7 +33,7 @@ const SongsMainArea = () => {
     const params = new URLSearchParams(searchParams);
 
     if (field === "searchValue" && ev.target.value.length > 2) {
-      params.set(field, ev.target.value.toLowerCase().trim());
+      params.set(field, ev.target.value.toLowerCase()?.trim());
 
       setFilters({
         ...filters,

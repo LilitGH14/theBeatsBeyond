@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 
-// contact_schema
 export const contact_schema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
@@ -11,7 +10,6 @@ export const contact_schema = Yup.object().shape({
 
 export const register_schema = Yup.object().shape({
   role: Yup.string().required(),
-  username: Yup.string().required(),
   email: Yup.string().required().email(),
   password: Yup.string().required().min(6).max(11),
   confirmPassword: Yup.string()
@@ -26,6 +24,7 @@ export const login_schema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(6).label("Password"),
 });
+
 //forgot schema
 export const forgotten_schema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -97,4 +96,43 @@ export const emailRegex =
 export const comment_schema = Yup.object().shape({
   title: Yup.string().required().min(6).label("Title"),
   description: Yup.string().required().min(20).label("Description"),
+});
+
+export const story_schema = Yup.object().shape({
+  title: Yup.string().required().min(6),
+  description: Yup.string().required().min(100),
+  // writers: Yup.array()
+  //   .of(
+  //     Yup.string()
+  //       .min(2, "Each item must be at least 2 characters long")
+  //       .max(10, "Each item can be at most 10 characters long")
+  //   )
+  //   .notRequired()
+  //   .test(
+  //     "is-valid-length",
+  //     "Each item must be between 2 and 10 characters",
+  //     (value) => {
+  //       if (!value) return true;
+  //       return value.every(
+  //         (item: any) => item.text.length >= 2 && item.text.length <= 10
+  //       );
+  //     }
+  //   ),
+  // singers: Yup.array()
+  //   .of(
+  //     Yup.string()
+  //       .min(2, "Each item must be at least 2 characters long")
+  //       .max(10, "Each item can be at most 10 characters long")
+  //   )
+  //   .notRequired()
+  //   .test(
+  //     "is-valid-length",
+  //     "Each item must be between 2 and 10 characters",
+  //     (value) => {
+  //       if (!value) return true;
+  //       return value.every(
+  //         (item: any) => item.text.length >= 2 && item.text.length <= 10
+  //       );
+  //     }
+  //   ),
 });

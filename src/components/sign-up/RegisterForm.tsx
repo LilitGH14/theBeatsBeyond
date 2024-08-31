@@ -18,8 +18,7 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
   const { handleSubmit, handleBlur, handleChange, values, errors, touched } =
     useFormik({
       initialValues: {
-        role: "",
-        username: "",
+        role: "fan",
         email: "",
         password: "",
         confirmPassword: "",
@@ -49,25 +48,9 @@ const RegisterForm = ({ dict }: SignUpFormProps) => {
             onChange={handleChange}
             required
           >
-            <option value="" disabled selected>
-              {dict?.SelectRole}
-            </option>
             <option value="fan">{dict?.Fan}</option>
             <option value="songWriter">{dict?.SongWriter}</option>
           </select>
-          {touched.role && <ErrorMsg error={errors.role} />}
-        </div>
-        <div className="bb-auth__input-box col-12">
-          <input
-            type="text"
-            placeholder={dict?.Username}
-            name="username"
-            value={values.username}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            required
-          />
-          {touched.username && <ErrorMsg error={errors.username} />}
         </div>
         <div className="bb-auth__input-box col-12">
           <input
